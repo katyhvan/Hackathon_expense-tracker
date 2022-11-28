@@ -1,11 +1,13 @@
 import React from "react";
 import MainRouting from "./MainRouting";
+import AuthContextProvider from "./contexts/AuthContextProvider";
 
 function App() {
   return (
     <div>
-      <h1>App</h1>
-      <MainRouting />
+      <AuthContextProvider>
+        <MainRouting />
+      </AuthContextProvider>
     </div>
   );
 }
