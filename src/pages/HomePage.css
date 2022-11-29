@@ -4,16 +4,15 @@
 }
 .home_block {
   width: 90vw;
-
   display: flex;
   justify-content: space-between;
 }
 
 .block_left img {
   position: absolute;
-  /* bottom: 0; */
   height: 95%;
 }
+
 .block_right {
   position: relative;
   display: flex;
