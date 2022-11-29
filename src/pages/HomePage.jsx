@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import img2 from "../img/Frame.svg";
-import img1 from "../img/Frame2.svg";
+// import img2 from "../img/Frame.svg";
+// import img1 from "../img/Frame2.svg";
 import two from "../img/two.png";
 import "./HomePage.css";
 
