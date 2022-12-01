@@ -1,0 +1,84 @@
+.login-page {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.block__left-login {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.block__right-login {
+  flex-grow: 1;
+}
+
+.login {
+  margin: 1%;
+}
+
+.login-title {
+  font-family: "Anek Devanagari";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 109px;
+  color: #244a56;
+  margin: 0;
+}
+
+.back-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.decor-img {
+  position: relative;
+  top: 0;
+  left: 38.5%;
+  height: 100%;
+}
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 450px;
+  margin: 0 auto;
+  padding: 10%;
+}
+
+.login-inp {
+  padding: 15px;
+  background: rgba(36, 74, 86, 0.1);
+  border: 1px solid #244a56;
+  border-radius: 20px;
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: rgba(36, 74, 86, 0.7);
+}
+
+.login-btn {
+  width: 400px;
+  height: 70px;
+  border: none;
+  background: #244a56;
+  border-radius: 57px;
+  font-family: "Anek Devanagari";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  color: #ffffff;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+  outline: #244a56;
+  cursor: pointer;
+}

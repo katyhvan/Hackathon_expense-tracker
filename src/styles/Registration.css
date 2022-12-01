@@ -124,3 +124,21 @@
   text-align: center;
   margin: 0 auto;
 }
+
+.login-link,
+.account-text {
+  font-family: "Anek Devanagari";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  margin-left: 10px;
+  color: #244a56;
+}
+
+.account-text {
+  font-weight: 400;
+}
+
+.login-link {
+  cursor: pointer;
+}

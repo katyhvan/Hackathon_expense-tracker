@@ -4,7 +4,7 @@ import axios from "axios";
 const authContext = createContext();
 export const useAuth = () => useContext(authContext);
 
-const API = "";
+const API = "http://35.203.116.125/api/v1/";
 
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
@@ -13,16 +13,30 @@ const AuthContextProvider = ({ children }) => {
 
   async function register(formData, navigate) {
     setLoading(true);
-
     try {
-      const res = await axios.post(`${API}account/register/`, formData);
+      const res = await axios.post(`${API}accounts/register/`, formData);
       navigate("/login");
-      alert("Вы успешно зарегистрировались!");
+      alert("Please check mail and activate your account!");
     } catch (err) {
       setError(Object.values(err.response.data));
-      console.log(err);
+      alert(err);
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function login(formData, email, navigate) {
+    setLoading();
+    try {
+      const res = await axios.post(`${API}accounts/login/`, formData);
+      localStorage.setItem("token", JSON.stringify(res.data));
+      localStorage.setItem("email", email);
+      navigate("/info");
+    } catch (err) {
+      setError([err.response.data.detail]);
+      alert("Please activate or create an account");
+    } finally {
+      setLoading();
     }
   }
 
@@ -35,6 +49,7 @@ const AuthContextProvider = ({ children }) => {
     setError,
     setLoading,
     register,
+    login,
   };
 
   return (
