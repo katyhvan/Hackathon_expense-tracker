@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import IncomePage from "./pages/IncomePage";
 import OutputPage from "./pages/OutputPage";
 import DiagramPage from "./pages/DiagramPage";
+import InfoPage from "./pages/InfoPage";
 
 const PAGES_ROUTES = [
   {
@@ -37,6 +38,11 @@ const PAGES_ROUTES = [
     link: "/diagram",
     element: <DiagramPage />,
     id: 6,
+  },
+  {
+    link: "/info",
+    element: <InfoPage />,
+    id: 7,
   },
 ];
 
