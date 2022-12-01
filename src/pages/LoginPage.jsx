@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   function handleLogin() {
     if (!email.trim() || !password.trim()) {
-      alert("Some iputs are empty!");
+      alert("Some inputs are empty!");
       return;
     } else {
       let formData = new FormData();
@@ -48,6 +48,7 @@ const LoginPage = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
           <button className="login-btn" onClick={handleLogin}>
             Sign in
           </button>

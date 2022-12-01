@@ -17,6 +17,7 @@ const AuthContextProvider = ({ children }) => {
       const res = await axios.post(`${API}accounts/register/`, formData);
       navigate("/login");
       alert("Please check mail and activate your account!");
+      console.log(res);
     } catch (err) {
       setError(Object.values(err.response.data));
       alert(err);
@@ -32,8 +33,10 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("token", JSON.stringify(res.data));
       localStorage.setItem("email", email);
       navigate("/info");
+      console.log(res);
     } catch (err) {
       setError([err.response.data.detail]);
+      console.log(err);
       alert("Please activate or create an account");
     } finally {
       setLoading();
