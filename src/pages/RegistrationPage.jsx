@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
 import "../styles/Registration.css";
-import Loader from "../components/Loader/Loader";
+// import Loader from "../components/Loader/Loader";
 import background from "../img/background-img.png";
-import logo from "../img/logo.png";
+
 import circle from "../img/circle.png";
 
 const RegistrationPage = () => {
@@ -48,16 +48,12 @@ const RegistrationPage = () => {
   }, []);
 
   if (loading) {
-    return <Loader />;
+    return; // <Loader />
   }
 
   return (
     <div className="register-page">
       <div className="block-left">
-        <div className="logo__block">
-          <img src={logo} alt="logo" />
-          <h4 className="logo_text">Akatscoin</h4>
-        </div>
         <h1 className="block-left__title">Hello Friend</h1>
         <p className="block-left__desc">Сontrol your money with Akatscoin</p>
         <img className="background-img" src={background} alt="background" />
@@ -65,39 +61,42 @@ const RegistrationPage = () => {
       </div>
       <div className="block-right">
         <h2 className="register-title">Create Account</h2>
-        <form className="inputs-block">
+        <div className="inputs-block">
           <input
             className="register-inp"
             type="text"
             placeholder="Username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={e => setUsername(e.target.value)}
           />
           <input
             className="register-inp"
             type="text"
             placeholder="E-Mail"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
           />
-          <input
-            className="register-inp"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="register-input">
+            <input
+              className="register-inp"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+            <p>Password must contain 8 symbols letters and numbers</p>
+          </div>
           <input
             className="register-inp"
             type="password"
             placeholder="Password Confirmation"
             value={password2}
-            onChange={(e) => setPassword2(e.target.value)}
+            onChange={e => setPassword2(e.target.value)}
           />
           <button className="register-btn" onClick={handleSave}>
             Sign Up
           </button>
-        </form>
+        </div>
         <p className="account-text">
           Already have an account
           <span className="login-link" onClick={() => navigate("/login")}>

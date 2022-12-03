@@ -6,8 +6,11 @@ import LoginPage from "./pages/LoginPage";
 import IncomePage from "./pages/IncomePage";
 import OutputPage from "./pages/OutputPage";
 import DiagramPage from "./pages/DiagramPage";
+import ModalAdd from "./pages/ModalAdd";
+import IncomeAdd from "./pages/IncomeAdd";
 import InfoPage from "./pages/InfoPage";
 
+import OutputAdd from "./pages/OutputAdd";
 const PAGES_ROUTES = [
   {
     link: "/",
@@ -25,19 +28,39 @@ const PAGES_ROUTES = [
     id: 3,
   },
   {
+    link: "/info",
+    element: <InfoPage />,
+    id: 4,
+  },
+  {
     link: "/income",
     element: <IncomePage />,
-    id: 4,
+    id: 5,
   },
   {
     link: "/output",
     element: <OutputPage />,
-    id: 5,
+    id: 6,
   },
   {
     link: "/diagram",
     element: <DiagramPage />,
-    id: 6,
+    id: 7,
+  },
+  {
+    link: "/modal",
+    element: <ModalAdd />,
+    id: 8,
+  },
+  {
+    link: "/IncomeAdd",
+    element: <IncomeAdd />,
+    id: 9,
+  },
+  {
+    link: "/OutputAdd",
+    element: <OutputAdd />,
+    id: 10,
   },
   {
     link: "/info",
@@ -49,7 +72,7 @@ const PAGES_ROUTES = [
 const MainRouting = () => {
   return (
     <Routes>
-      {PAGES_ROUTES.map((item) => (
+      {PAGES_ROUTES.map(item => (
         <Route path={item.link} element={item.element} key={item.id} />
       ))}
     </Routes>
