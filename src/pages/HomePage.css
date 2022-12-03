@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
 }
+
 .home_block {
   width: 90vw;
   display: flex;
@@ -30,6 +31,7 @@
   width: 582px;
   color: #244a56;
 }
+
 .block_right h4 {
   font-weight: 100;
   font-family: sans-serif;
@@ -39,6 +41,7 @@
   color: #244a56;
   padding-left: 4px;
 }
+
 .block_right button {
   color: white;
   font-size: 40px;
@@ -49,10 +52,12 @@
   border-radius: 48px;
   border: none;
 }
+
 @media all and (max-width: 1250px) {
   .home_block {
     flex-direction: column;
   }
+
   .block_right {
     margin-top: 600px;
   }
