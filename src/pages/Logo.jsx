@@ -5,7 +5,16 @@ const Logo = () => {
   return (
     <>
       <Link to="/">
-        <img style={{ position: "absolute" }} src={logo} alt="" />
+        <img
+          style={{
+            position: "relative",
+            top: "15px",
+            marginBottom: "30px",
+            left: "50px",
+          }}
+          src={logo}
+          alt=""
+        />
       </Link>
     </>
   );
