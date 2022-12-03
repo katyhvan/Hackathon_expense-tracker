@@ -14,7 +14,9 @@ const ModalAdd = () => {
           <Link to="/IncomeAdd">
             <button>Income </button>
           </Link>
-          <button>Expence</button>
+          <Link to="/OutputAdd">
+            <button>Expence</button>
+          </Link>
         </div>
       </div>
     </>

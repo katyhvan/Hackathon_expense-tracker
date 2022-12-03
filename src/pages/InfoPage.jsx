@@ -17,13 +17,17 @@ const InfoPage = () => {
             <p>Expense</p>
           </div>
         </NavLink>
-        <div className="info_block">
-          <h3>30000</h3>
-          <p>Balance</p>
-        </div>
-        <div className="info_block">
-          <h3>Graph</h3>
-        </div>
+        <Link>
+          <div className="info_block">
+            <h3>30000</h3>
+            <p>Balance</p>
+          </div>
+        </Link>
+        <NavLink to="/diagram">
+          <div className="info_block">
+            <h3>Graph</h3>
+          </div>
+        </NavLink>
       </div>
       <Link to="/modal">
         <button className="btn_add">+</button>
@@ -31,5 +35,4 @@ const InfoPage = () => {
     </>
   );
 };
-
 export default InfoPage;

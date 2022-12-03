@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import photo from "./img/inconeAdd.svg";
+import photo from "../img/inconeAdd.svg";
 import "./incomeAdd.css";
-import date from "./img/date.svg";
 import { incomeContext } from "../contexts/IncomeContextProvider";
 const IncomeAdd = () => {
   const { addIncome } = useContext(incomeContext);
@@ -17,7 +16,7 @@ const IncomeAdd = () => {
       return;
     }
     let obj = { date, category, amount, note };
-    console.log(obj);
+
     addIncome(obj);
     setDate("");
     setCategory("");
@@ -37,35 +36,14 @@ const IncomeAdd = () => {
           <h2>Add Income </h2>
           <div className="add_inp">
             <input
-              className="inp one"
-              placeholder="Date"
-              type="text"
-              value={date}
-              onChange={e => setDate(e.target.value)}
-            />
-            <select
-              className="inp two"
-              name="select"
-              value={category}
-              onChange={e => setCategory(e.target.value)}>
-              <option style={{ display: "none" }} value="value1" selected>
-                Category
-              </option>
-              <option value="Food">Food</option>
-              <option value="Education">Education</option>
-              <option value="Health">Health</option>
-              <option value="Transportation">Transportation</option>
-              <option value="Beauty">Beauty</option>
-            </select>
-            <input
-              className="inp three"
+              className="inp1 three"
               placeholder="Amount"
               type="text"
               value={amount}
               onChange={e => setAmount(e.target.value)}
             />
             <input
-              className="inp four"
+              className="inp1 four"
               placeholder="Note"
               type="text"
               value={note}

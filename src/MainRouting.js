@@ -6,10 +6,11 @@ import LoginPage from "./pages/LoginPage";
 import IncomePage from "./pages/IncomePage";
 import OutputPage from "./pages/OutputPage";
 import DiagramPage from "./pages/DiagramPage";
-import InfoPage from "./pages/InfoPage";
 import ModalAdd from "./pages/ModalAdd";
 import IncomeAdd from "./pages/IncomeAdd";
+import InfoPage from "./pages/InfoPage";
 
+import OutputAdd from "./pages/OutputAdd";
 const PAGES_ROUTES = [
   {
     link: "/",
@@ -55,6 +56,16 @@ const PAGES_ROUTES = [
     link: "/IncomeAdd",
     element: <IncomeAdd />,
     id: 9,
+  },
+  {
+    link: "/OutputAdd",
+    element: <OutputAdd />,
+    id: 10,
+  },
+  {
+    link: "/info",
+    element: <InfoPage />,
+    id: 7,
   },
 ];
 

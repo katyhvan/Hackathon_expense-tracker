@@ -21,6 +21,20 @@
   flex-direction: column;
 }
 
+.inp1 {
+  width: 460px;
+  height: 61px;
+  margin-bottom: 20px;
+  height: 61px;
+  padding-left: 60px;
+  font-weight: 500;
+  font-size: 24px;
+  color: rgba(36, 74, 86, 0.7);
+  background: rgba(36, 74, 86, 0.1);
+  border: 1px solid #244a56;
+  border-radius: 20px;
+}
+
 .inp {
   margin-bottom: 20px;
   height: 61px;
@@ -38,19 +52,19 @@
 }
 
 .one {
-  background: url(./img/date.svg) no-repeat 20px;
+  background: url(../img/date.svg) no-repeat 20px;
   background-size: auto 50%;
 }
 .two {
-  background: url(./img/category.svg) no-repeat 20px;
+  background: url(../img/category.svg) no-repeat 20px;
   background-size: auto 20%;
 }
 .three {
-  background: url(./img/amount.svg) no-repeat 20px;
+  background: url(../img/amount.svg) no-repeat 20px;
   background-size: auto 50%;
 }
 .four {
-  background: url(./img/note.svg) no-repeat 20px;
+  background: url(../img/note.svg) no-repeat 20px;
   background-size: auto 50%;
 }
 

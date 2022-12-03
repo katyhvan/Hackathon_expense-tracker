@@ -3,7 +3,7 @@ import MainRouting from "./MainRouting";
 import AuthContextProvider from "./contexts/AuthContextProvider";
 import Logo from "./pages/Logo";
 import IncomeContextProvider from "./contexts/IncomeContextProvider";
-// import Logo from "./pages/Logo";
+import "./index.css";
 
 function App() {
   return (

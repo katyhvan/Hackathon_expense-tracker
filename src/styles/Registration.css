@@ -1,0 +1,144 @@
+.register-title {
+  font-family: "Anek Devanagari", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 109px;
+  color: #244a56;
+}
+
+.register-page {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.block-left {
+  flex-grow: 1;
+}
+
+.block-right {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.background-img {
+  position: absolute;
+  z-index: -10;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+
+.circle-img {
+  position: relative;
+  left: 0;
+  bottom: -20px;
+  z-index: 10;
+}
+
+.logo__block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  left: 20px;
+  top: 1%;
+}
+
+.logo_text {
+  font-family: "Anek Devanagari";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 41px;
+  color: #244a56;
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.block-left__title {
+  position: relative;
+  top: 19%;
+  left: 35%;
+  margin: 0;
+  font-family: "Anek Devanagari";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 109px;
+  color: #244a56;
+}
+
+.block-left__desc {
+  position: relative;
+  top: 19%;
+  left: 35%;
+  font-family: "Anek Devanagari";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 61px;
+  color: #244a56;
+  width: 432px;
+  margin: 0;
+}
+
+.register-title {
+  margin-top: 21%;
+}
+
+.inputs-block {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  gap: 32px;
+  margin: 0 auto;
+}
+
+.register-inp {
+  height: 30px;
+  background: rgba(36, 74, 86, 0.1);
+  border: 1px solid #244a56;
+  border-radius: 20px;
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  padding: 15px;
+  color: rgba(36, 74, 86, 0.7);
+}
+
+.register-btn {
+  width: 400px;
+  height: 70px;
+  background: #244a56;
+  border-radius: 57px;
+  border: 1px solid #244a56;
+  font-family: "Anek Devanagari";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 68px;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.login-link,
+.account-text {
+  font-family: "Anek Devanagari";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  margin-left: 10px;
+  color: #244a56;
+}
+
+.account-text {
+  font-weight: 400;
+}
+
+.login-link {
+  cursor: pointer;
+}

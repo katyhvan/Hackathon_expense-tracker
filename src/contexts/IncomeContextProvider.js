@@ -15,7 +15,7 @@ const IncomeContextProvider = ({ children }) => {
   }
   async function incomeProduct() {
     const res = await axios(API);
-    console.log(res);
+
     const data = res.data.security;
     console.log(data);
   }

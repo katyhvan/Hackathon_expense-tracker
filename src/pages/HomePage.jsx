@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-import two from "./img/two.png";
+import two from "../img/two.png";
 import "./HomePage.css";
 
 const HomePage = () => {
