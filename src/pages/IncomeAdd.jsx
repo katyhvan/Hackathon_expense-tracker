@@ -4,24 +4,18 @@ import "./incomeAdd.css";
 import { incomeContext } from "../contexts/IncomeContextProvider";
 const IncomeAdd = () => {
   const { addIncome } = useContext(incomeContext);
-  const [date, setDate] = useState("");
-  const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState("");
-  const [note, setNote] = useState("");
+  const [amount, setAmount] = useState(0);
 
   function handleAdd(e) {
     e.preventDefault(); // останавливает автообновление бразуреа при отправке данных через form
-    if (!date.trim() || !category.trim() || !amount.trim() || !note.trim()) {
+    if (!amount.trim()) {
       alert("Заполните все поля!");
       return;
     }
-    let obj = { date, category, amount, note };
+    // let obj = { amount: +amount, note };
 
-    addIncome(obj);
-    setDate("");
-    setCategory("");
-    setAmount("");
-    setNote("");
+    addIncome(amount);
+    setAmount(0);
   }
 
   return (
@@ -38,16 +32,9 @@ const IncomeAdd = () => {
             <input
               className="inp1 three"
               placeholder="Amount"
-              type="text"
+              type="number"
               value={amount}
               onChange={e => setAmount(e.target.value)}
-            />
-            <input
-              className="inp1 four"
-              placeholder="Note"
-              type="text"
-              value={note}
-              onChange={e => setNote(e.target.value)}
             />
           </div>
           <button className="btn_save" type="submit">

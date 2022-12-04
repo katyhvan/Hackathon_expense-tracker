@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
 import "../styles/Registration.css";
-// import Loader from "../components/Loader/Loader";
+import Loader from "../components/Loader/Loader";
 import background from "../img/background-img.png";
 
 import circle from "../img/circle.png";

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./InfoPage.css";
 const InfoPage = () => {
+  const [modal, setModal] = useState("none");
   return (
     <>
       <div className="containerInfo">
@@ -29,9 +30,24 @@ const InfoPage = () => {
           </div>
         </NavLink>
       </div>
-      <Link to="/modal">
-        <button className="btn_add">+</button>
-      </Link>
+
+      <button className="btn_add" onClick={() => setModal("block")}>
+        +
+      </button>
+
+      <div
+        style={{ display: modal }}
+        onClick={() => setModal("none")}
+        className="modal">
+        <div className="modal_btn">
+          <Link to="/IncomeAdd">
+            <button>Income </button>
+          </Link>
+          <Link to="/OutputAdd">
+            <button>Expence</button>
+          </Link>
+        </div>
+      </div>
     </>
   );
 };

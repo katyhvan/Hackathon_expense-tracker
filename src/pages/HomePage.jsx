@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import two from "../img/two.png";
+import mobile from "../img/mobile_home.svg";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -8,6 +9,12 @@ const HomePage = () => {
 
   return (
     <>
+      <img
+        style={{ position: "absolute", bottom: 0, right: 0 }}
+        className="mobile_home"
+        src={mobile}
+        alt=""
+      />
       <div className="containerHome">
         <div className="home_block">
           <div className="block_left">

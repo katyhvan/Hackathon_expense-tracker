@@ -47,11 +47,7 @@ const PAGES_ROUTES = [
     element: <DiagramPage />,
     id: 7,
   },
-  {
-    link: "/modal",
-    element: <ModalAdd />,
-    id: 8,
-  },
+
   {
     link: "/IncomeAdd",
     element: <IncomeAdd />,
