@@ -19,11 +19,11 @@
 }
 
 .block_right {
-  /* position: relative; */
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: 55vw;
+  margin-left: 60vw;
+  margin-top: 20vh;
 }
 
 .block_right h2 {
