@@ -23,6 +23,7 @@ const AuthContextProvider = ({ children }) => {
       console.log(err);
     } finally {
       setLoading(false);
+      // console.log(formData);
     }
   }
 

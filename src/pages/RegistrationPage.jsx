@@ -3,14 +3,12 @@ import { useAuth } from "../contexts/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
 import "../styles/Registration.css";
 // import Loader from "../components/Loader/Loader";
-import background from "../img/background-img.png";
-
-import circle from "../img/circle.png";
+import logo from "../img/logo.png";
 
 const RegistrationPage = () => {
   const navigate = useNavigate();
 
-  const { error, setError, loading, register } = useAuth();
+  const { setError, loading, register } = useAuth();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,49 +52,50 @@ const RegistrationPage = () => {
   return (
     <div className="register-page">
       <div className="block-left">
-        <h1 className="block-left__title">Hello Friend</h1>
-        <p className="block-left__desc">Сontrol your money with Akatscoin</p>
-        <img className="background-img" src={background} alt="background" />
-        <img className="circle-img" src={circle} alt="circle" />
+        <div className="logo__block">
+          <img src={logo} alt="logo" />
+          <h4 className="logo_text">Akatscoin</h4>
+        </div>
+        <div className="title-block">
+          <h1 className="block-left__title">Hello Friend</h1>
+          <p className="block-left__desc">Сontrol your money with Akatscoin</p>
+        </div>
       </div>
       <div className="block-right">
         <h2 className="register-title">Create Account</h2>
-        <div className="inputs-block">
+        <form className="inputs-block">
           <input
             className="register-inp"
             type="text"
             placeholder="Username"
             value={username}
-            onChange={e => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <input
             className="register-inp"
             type="text"
             placeholder="E-Mail"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <div className="register-input">
-            <input
-              className="register-inp"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
-            <p>Password must contain 8 symbols letters and numbers</p>
-          </div>
+          <input
+            className="register-inp"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <input
             className="register-inp"
             type="password"
             placeholder="Password Confirmation"
             value={password2}
-            onChange={e => setPassword2(e.target.value)}
+            onChange={(e) => setPassword2(e.target.value)}
           />
           <button className="register-btn" onClick={handleSave}>
             Sign Up
           </button>
-        </div>
+        </form>
         <p className="account-text">
           Already have an account
           <span className="login-link" onClick={() => navigate("/login")}>
