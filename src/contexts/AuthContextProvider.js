@@ -33,16 +33,69 @@ const AuthContextProvider = ({ children }) => {
       const res = await axios.post(`${API}accounts/login/`, formData);
       console.log(formData);
       localStorage.setItem("token", JSON.stringify(res.data));
-      // localStorage.setItem("email", email);
       navigate("/info");
       console.log(res);
     } catch (err) {
-      setError(err);
-      console.log(error);
-      // alert("Please activate or create an account");
+      setError([err.response.data.detail]);
+      console.log(err);
+      alert("Please check, activate or create an account");
     } finally {
       setLoading();
     }
+  }
+
+  async function getMail(formData, navigate) {
+    try {
+      const res = await axios.post(`${API}accounts/forgot/`, formData);
+      navigate("/restore");
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoading();
+    }
+  }
+
+  async function passReset(formData, navigate) {
+    try {
+      const res = await axios.post(`${API}accounts/restore/`, formData);
+      navigate("/login");
+    } catch (err) {
+      setError(err);
+    } finally {
+      setLoading();
+    }
+  }
+
+  async function checkAuth() {
+    let token = JSON.parse(localStorage.getItem("token"));
+
+    try {
+      let Autorization = `Token ${token.access}`;
+      let res = await axios.post(
+        `${API}accounts/logout/`,
+        { refresh: token.refresh },
+        { headers: { Autorization } }
+      );
+
+      localStorage.setItem(
+        "token",
+        JSON.stringify({ refresh: token.refresh, access: token.access })
+      );
+    } catch (error) {}
+  }
+
+  async function handleLogout(formData, navigate) {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const Authorization = `JWT ${token.access}`;
+    const config = {
+      headers: {
+        Authorization,
+      },
+    };
+    await axios.post(`${API}accounts/logout/`, formData, config);
+    localStorage.removeItem("token");
+    setCurrentUser(false);
+    navigate("/");
   }
 
   const values = {
@@ -55,6 +108,8 @@ const AuthContextProvider = ({ children }) => {
     setLoading,
     register,
     login,
+    getMail,
+    passReset,
   };
 
   return (
