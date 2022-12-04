@@ -1,21 +1,14 @@
 .diagram-page {
-  /* height: 1104px; */
-  padding-bottom: 100px;
-  /* overflow-y: hidden; */
+  padding-bottom: 50px;
+  margin-top: 45px;
 }
 
-.diagram-nav {
-  height: 120px;
-  padding: 0 4.5vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center
-}
-
-.diagram-nav__left-block {
-  width: 235px;
-  display: flex;
-  justify-content: space-between;
+.logo_title {
+  font-family: 'Anek Devanagari';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  margin-top: 20px;
 }
 
 .diagram-nav__right-block {
@@ -77,8 +70,7 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  /* align-items: flex-end; */
-  padding-bottom: 15px;
+  padding-bottom: 80px;
 }
 
 .diagram__child-block {
@@ -122,7 +114,7 @@
 
 .diagram-info-block>ul>li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 10px;
 }
