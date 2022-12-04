@@ -40,7 +40,7 @@ const DiagramPage = () => {
 						'#CE8487',
 						'rgba(141, 89, 91, 1)',
 					],
-					hoverBackgroundColor: 'rgb(255,0,0)',
+					// hoverBackgroundColor: 'rgb(255,0,0)',
 				},
 			],
 		})
@@ -59,7 +59,7 @@ const DiagramPage = () => {
 			<div className='diagram-nav'>
 				<div className='diagram-nav__left-block'>
 					<img src={logo} alt='logo' width={79} height={53} />
-					<h4 className='logo_text'>Akatscoin</h4>
+					<h4 className='logo_title'>Akatscoin</h4>
 				</div>
 				<div className='diagram-nav__right-block'>
 					<img src={vector1} alt='' />

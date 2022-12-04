@@ -1,15 +1,21 @@
-import React from "react";
-import MainRouting from "./MainRouting";
-import AuthContextProvider from "./contexts/AuthContextProvider";
+import React from 'react'
+import MainRouting from './MainRouting'
+import AuthContextProvider from './contexts/AuthContextProvider'
+import Logo from './pages/Logo'
+import IncomeContextProvider from './contexts/IncomeContextProvider'
+import './index.css'
 
 function App() {
-  return (
-    <div>
-      <AuthContextProvider>
-        <MainRouting />
-      </AuthContextProvider>
-    </div>
-  );
+	return (
+		<div>
+			<IncomeContextProvider>
+				<AuthContextProvider>
+					{/* <Logo /> */}
+					<MainRouting />
+				</AuthContextProvider>
+			</IncomeContextProvider>
+		</div>
+	)
 }
 
-export default App;
+export default App

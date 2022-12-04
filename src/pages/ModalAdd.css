@@ -1,0 +1,38 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.424);
+}
+
+.modal_btn {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_btn button {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  border: none;
+  width: 151px;
+  height: 54px;
+  background: rgb(60, 95, 106);
+  border-radius: 10px;
+  color: white;
+}
+
+.btn_close {
+  color: white;
+  border: none;
+  background-color: rgba(250, 235, 215, 0);
+  font-size: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

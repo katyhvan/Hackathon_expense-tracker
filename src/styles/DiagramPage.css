@@ -15,7 +15,16 @@
 .diagram-nav__left-block {
   width: 235px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+
+.logo_title {
+  font-family: 'Anek Devanagari';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  margin-top: 20px;
 }
 
 .diagram-nav__right-block {
@@ -122,7 +131,7 @@
 
 .diagram-info-block>ul>li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 10px;
 }
