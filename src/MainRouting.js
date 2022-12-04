@@ -6,8 +6,11 @@ import LoginPage from "./pages/LoginPage";
 import IncomePage from "./pages/IncomePage";
 import OutputPage from "./pages/OutputPage";
 import DiagramPage from "./pages/DiagramPage";
+import ModalAdd from "./pages/ModalAdd";
+import IncomeAdd from "./pages/IncomeAdd";
 import InfoPage from "./pages/InfoPage";
-
+import ModalMailPage from "./pages/ModalMailPage";
+import OutputAdd from "./pages/OutputAdd";
 const PAGES_ROUTES = [
   {
     link: "/",
@@ -27,22 +30,42 @@ const PAGES_ROUTES = [
   {
     link: "/income",
     element: <IncomePage />,
-    id: 4,
+    id: 5,
   },
   {
     link: "/output",
     element: <OutputPage />,
-    id: 5,
+    id: 6,
   },
   {
     link: "/diagram",
     element: <DiagramPage />,
-    id: 6,
+    id: 7,
+  },
+  {
+    link: "/modal",
+    element: <ModalAdd />,
+    id: 8,
+  },
+  {
+    link: "/IncomeAdd",
+    element: <IncomeAdd />,
+    id: 9,
+  },
+  {
+    link: "/OutputAdd",
+    element: <OutputAdd />,
+    id: 10,
   },
   {
     link: "/info",
     element: <InfoPage />,
-    id: 7,
+    id: 11,
+  },
+  {
+    link: "/modalMail",
+    element: <ModalMailPage />,
+    id: 12,
   },
 ];
 

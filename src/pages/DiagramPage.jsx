@@ -1,7 +1,13 @@
 import React from "react";
+import InfoPage from "./InfoPage";
 
 const DiagramPage = () => {
-  return <div>DiagramPage</div>;
+  return (
+    <>
+      <InfoPage />
+      <div>DiagramPage</div>
+    </>
+  );
 };
 
 export default DiagramPage;

@@ -3,3 +3,18 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+}
+.active {
+  border: 1px solid #244a56;
+  border-radius: 30px;
+}
+
+.add {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(245.28deg, #76bacf 0.9%, #ffffff 74.38%);
+}
