@@ -1,8 +1,4 @@
-import "./DiagramPage.css";
-import InfoPage from "./InfoPage";
-import React, { useEffect, useState } from "react";
-import "./DiagramPage.css";
-
+import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -12,6 +8,12 @@ import {
   Title,
   Legend,
 } from "chart.js";
+
+import "../styles/DiagramPage.css";
+import InfoPage from "./InfoPage";
+import "./DiagramPage.css";
+
+ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend);
 
 ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend);
 

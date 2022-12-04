@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import photo from "../img/inconeAdd.svg";
-import "./incomeAdd.css";
+import "../styles/incomeAdd.css";
 import { incomeContext } from "../contexts/IncomeContextProvider";
 const IncomeAdd = () => {
   const { addIncome } = useContext(incomeContext);

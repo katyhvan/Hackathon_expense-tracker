@@ -1,30 +1,31 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import two from "../img/two.png";
-import mobile from "../img/mobile_home.svg";
-import "./HomePage.css";
-
+import "../styles/HomePage.css";
+import logo from "../img/logo.png";
+import Logo from "./Logo";
+// import mobile from "../img/mobile_home.svg";
 const HomePage = () => {
   const navigate = useNavigate();
 
   return (
     <>
-      <img
+      {/* <img
         style={{ position: "absolute", bottom: 0, right: 0 }}
         className="mobile_home"
         src={mobile}
         alt=""
-      />
+      /> */}
       <div className="containerHome">
-        <div className="home_block">
-          <div className="block_left">
-            <img className="img" src={two} alt="" />
-          </div>
-          <div className="block_right">
-            <h2>Take your finances to the next levels!</h2>
-            <h4>Don't hesite, money matters.</h4>
-            <button onClick={() => navigate("/registration")}>START</button>
-          </div>
+        {/* <div className="logo-block-home">
+          <img src={logo} width={50} height={30} alt="" />
+          <h4 className="logo_text-home">Akatscoin</h4>
+        </div> */}
+        <Logo />
+        <div className="block_right">
+          <h2>Take your finances to the next levels!</h2>
+          <h4>Don't hesite, money matters.</h4>
+          <button onClick={() => navigate("/registration")}>START</button>
         </div>
       </div>
     </>
