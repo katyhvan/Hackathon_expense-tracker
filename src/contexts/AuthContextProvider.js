@@ -23,7 +23,6 @@ const AuthContextProvider = ({ children }) => {
       console.log(err);
     } finally {
       setLoading(false);
-      // console.log(formData);
     }
   }
 
@@ -31,10 +30,8 @@ const AuthContextProvider = ({ children }) => {
     setLoading();
     try {
       const res = await axios.post(`${API}accounts/login/`, formData);
-      console.log(formData);
       localStorage.setItem("token", JSON.stringify(res.data));
       navigate("/info");
-      console.log(res);
     } catch (err) {
       setError([err.response.data.detail]);
       console.log(err);
@@ -110,6 +107,8 @@ const AuthContextProvider = ({ children }) => {
     login,
     getMail,
     passReset,
+    checkAuth,
+    handleLogout,
   };
 
   return (

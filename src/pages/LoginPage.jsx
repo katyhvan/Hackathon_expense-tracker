@@ -6,13 +6,9 @@ import "../styles/Login.css";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const { error, setError, loading, login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
 
   function handleLogin() {
     if (!email.trim() || !password.trim()) {
@@ -50,6 +46,9 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <p className="forgot-pass" onClick={() => navigate("/modalMail")}>
+              Forgot Password
+            </p>
             <button className="login-btn" onClick={handleLogin}>
               Sign in
             </button>
@@ -67,8 +66,6 @@ const LoginPage = () => {
         <div className="block__right-login">
           <h2 className="welcome-title">Welcome Back</h2>
           <p className="welcome-desc">Glad to see you again</p>
-          {/* <img className='back-img' src={background} alt='background' /> */}
-          {/* <img className='decor-img' src={decor} alt='decor' /> */}
         </div>
       </div>
     </>

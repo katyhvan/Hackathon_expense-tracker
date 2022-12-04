@@ -10,6 +10,8 @@ import IncomeAdd from "./pages/IncomeAdd";
 import InfoPage from "./pages/InfoPage";
 import ModalMailPage from "./pages/ModalMailPage";
 import OutputAdd from "./pages/OutputAdd";
+import RestorePage from "./pages/RestorePage";
+
 const PAGES_ROUTES = [
   {
     link: "/",
@@ -66,12 +68,17 @@ const PAGES_ROUTES = [
     element: <ModalMailPage />,
     id: 12,
   },
+  {
+    link: "/restore",
+    element: <RestorePage />,
+    id: 12,
+  },
 ];
 
 const MainRouting = () => {
   return (
     <Routes>
-      {PAGES_ROUTES.map(item => (
+      {PAGES_ROUTES.map((item) => (
         <Route path={item.link} element={item.element} key={item.id} />
       ))}
     </Routes>

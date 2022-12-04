@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
+import Logo from "../pages/Logo";
+
+import "../styles/Restore.css";
 
 const RestorePage = () => {
   const navigate = useNavigate();
@@ -24,26 +27,34 @@ const RestorePage = () => {
 
   return (
     <>
-      <h1>Reset Password</h1>
-      <input
-        type="text"
-        placeholder="Code"
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="New Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="New Password Confirmation"
-        value={password2}
-        onChange={(e) => setPassword2(e.target.value)}
-      />
-      <button onClick={handleSave}>Save</button>
+      <Logo />
+      <div className="restore-page">
+        <h1 className="restore-title">Reset Password</h1>
+        <input
+          className="restore-inp"
+          type="text"
+          placeholder="Code"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+        />
+        <input
+          className="restore-inp"
+          type="password"
+          placeholder="New Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          className="restore-inp"
+          type="password"
+          placeholder="New Password Confirmation"
+          value={password2}
+          onChange={(e) => setPassword2(e.target.value)}
+        />
+        <button className="restore-btn" onClick={handleSave}>
+          Save
+        </button>
+      </div>
     </>
   );
 };

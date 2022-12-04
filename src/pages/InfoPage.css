@@ -36,6 +36,10 @@
   color: #244a56;
 }
 
+.logout-img {
+  cursor: pointer;
+}
+
 .containerList {
   margin-top: 60px;
   display: flex;
