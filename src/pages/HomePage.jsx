@@ -17,10 +17,6 @@ const HomePage = () => {
         alt=""
       /> */}
       <div className="containerHome">
-        {/* <div className="logo-block-home">
-          <img src={logo} width={50} height={30} alt="" />
-          <h4 className="logo_text-home">Akatscoin</h4>
-        </div> */}
         <Logo />
         <div className="block_right">
           <h2>Take your finances to the next levels!</h2>

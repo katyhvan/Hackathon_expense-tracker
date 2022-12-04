@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContextProvider";
 import "./InfoPage.css";
 
 import logo from "../img/logo.png";
@@ -10,7 +11,23 @@ import vector3 from "../img/Vector (2).jpg";
 
 const InfoPage = () => {
   const navigate = useNavigate();
+  const { checkAuth, handleLogout } = useAuth();
   const [modal, setModal] = useState("none");
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
+
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  function logout() {
+    const formData = new FormData();
+    formData.append("refresh", token.refresh);
+    handleLogout(formData, navigate);
+  }
+
   return (
     <>
       <div className="info-nav">
@@ -18,14 +35,20 @@ const InfoPage = () => {
           className="info-nav__left-block"
           onClick={() => {
             navigate("/");
-          }}>
+          }}
+        >
           <img src={logo} width={79} height={53} alt="" />
           <h4 className="logo_text-info">Akatscoin</h4>
         </div>
         <div className="info-nav__right-block">
           <img src={vector1} alt="" />
           <img src={vector2} alt="" />
-          <img src={vector3} alt="" />
+          <img
+            className="logout-img"
+            src={vector3}
+            alt="logout-icon"
+            onClick={logout}
+          />
         </div>
       </div>
       <div className="containerInfo">
@@ -64,7 +87,8 @@ const InfoPage = () => {
       <div
         style={{ display: modal }}
         onClick={() => setModal("none")}
-        className="modal">
+        className="modal"
+      >
         <div className="modal_btn">
           <Link to="/IncomeAdd">
             <button>Income </button>

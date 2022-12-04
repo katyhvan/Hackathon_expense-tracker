@@ -56,6 +56,7 @@
   border-radius: 48px;
   border: none;
   margin-left: 6vw;
+  cursor: pointer;
 }
 @media all and (max-width: 1250px) {
   .home_block {
