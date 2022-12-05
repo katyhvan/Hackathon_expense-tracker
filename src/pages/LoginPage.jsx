@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContextProvider'
 import { useNavigate } from 'react-router-dom'
 
-import background from '../img/login-page/background-login.png'
-import decor from '../img/login-page/decor-img.png'
 import logo from '../img/logo.png'
 
 import '../styles/Login.css'
