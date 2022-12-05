@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContextProvider'
 import { useNavigate } from 'react-router-dom'
-import '../styles/Registration.css'
-import Loader from '../components/Loader/Loader'
 import logo from '../img/logo.png'
+import '../styles/Registration.css'
 
 const RegistrationPage = () => {
 	const navigate = useNavigate()
 
-	const { error, setError, loading, register } = useAuth()
+	const { setError, loading, register } = useAuth()
 	const [username, setUsername] = useState('')
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
@@ -46,13 +45,13 @@ const RegistrationPage = () => {
 	}, [])
 
 	if (loading) {
-		return <Loader />
+		return
 	}
 
 	return (
 		<div className='register-page'>
 			<div className='block-left'>
-				<div className='logo__block'>
+				<div className='logo__block' onClick={() => navigate('/')}>
 					<img src={logo} alt='logo' />
 					<h4 className='logo_text'>Akatscoin</h4>
 				</div>
@@ -92,11 +91,14 @@ const RegistrationPage = () => {
 						value={password2}
 						onChange={e => setPassword2(e.target.value)}
 					/>
+					<span className='pass-contain'>
+						*Password must contain 8 characters (letters and numbers){' '}
+					</span>
 					<button className='register-btn' onClick={handleSave}>
 						Sign Up
 					</button>
 				</form>
-				<p className='account-text'>
+				<p className='login-text'>
 					Already have an account
 					<span className='login-link' onClick={() => navigate('/login')}>
 						Login

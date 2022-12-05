@@ -1,18 +1,27 @@
 .diagram-page {
-  padding-bottom: 50px;
-  margin-top: 45px;
+  /* height: 1104px; */
+  padding-bottom: 100px;
+  margin-top: 100px;
+  /* overflow-y: hidden; */
+}
+
+.diagram-nav {
+  height: 120px;
+  padding: 0 4.5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.diagram-nav__left-block {
+  width: 235px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo_title {
-  font-family: 'Anek Devanagari';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 32px;
-  margin-top: 20px;
-}
-
-.logo_title {
-  font-family: 'Anek Devanagari';
+  font-family: "Anek Devanagari";
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -38,9 +47,8 @@
   justify-content: space-between;
 }
 
-
 .diagram-card:hover {
-  outline: 2px solid #244A56;
+  outline: 2px solid #244a56;
 }
 
 .diagram-card {
@@ -55,20 +63,20 @@
   background: rgba(118, 186, 207, 0.15);
 }
 
-.diagram-card>h3 {
+.diagram-card > h3 {
   height: 60px;
   font-size: 48px;
   font-weight: 600;
-  font-family: 'Anek Devanagari';
+  font-family: "Anek Devanagari";
   color: rgba(36, 74, 86, 1);
   margin-bottom: 15px;
 }
 
-.diagram-card>h5 {
+.diagram-card > h5 {
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
-  font-family: 'Anek Devanagari';
+  font-family: "Anek Devanagari";
   color: rgba(36, 74, 86, 1);
 }
 
@@ -78,7 +86,8 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 80px;
+  /* align-items: flex-end; */
+  padding-bottom: 15px;
 }
 
 .diagram__child-block {
@@ -112,15 +121,15 @@
 .diagram-info-title {
   font-size: 48px;
   font-weight: 500;
-  font-family: 'Anek Devanagari';
+  font-family: "Anek Devanagari";
   margin-bottom: 9px;
 }
 
-.diagram-info-block>ul {
+.diagram-info-block > ul {
   margin-right: 10px;
 }
 
-.diagram-info-block>ul>li {
+.diagram-info-block > ul > li {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -129,14 +138,14 @@
 
 .element {
   font-size: 24px;
-  font-family: 'Quicksand';
+  font-family: "Quicksand";
   font-weight: 600;
 }
 
 .price {
   width: 75px;
   text-align: left;
-  font-family: 'Quicksand';
+  font-family: "Quicksand";
   font-weight: 500;
   font-size: 24px;
   color: rgba(36, 74, 86, 1);

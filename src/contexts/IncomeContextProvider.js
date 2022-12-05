@@ -1,28 +1,24 @@
-import axios from "axios";
-import React, { createContext } from "react";
+import axios from 'axios'
+import React, { createContext } from 'react'
 
-export const incomeContext = createContext();
-const API = "http://35.203.116.125/";
+export const incomeContext = createContext()
+const API = 'http://35.203.116.125/api/v1/'
 
 const IncomeContextProvider = ({ children }) => {
-  async function addIncome(newIncome) {
-    try {
-      console.log(newIncome);
-      await axios.post(API, newIncome);
-    } catch (error) {
-      return error;
-    }
-  }
-  async function incomeProduct() {
-    const res = await axios(API);
-
-    const data = res.data.security;
-    console.log(data);
-  }
-  incomeProduct();
-  let cloud = { incomeProduct, addIncome };
-  return (
-    <incomeContext.Provider value={cloud}>{children}</incomeContext.Provider>
-  );
-};
-export default IncomeContextProvider;
+	const servise = `${API}service/`
+	console.log(servise)
+	async function addIncome(amount) {
+		try {
+			const formData = new FormData()
+			formData.append('income', amount)
+			await axios.post(servise, formData)
+		} catch (error) {
+			return error
+		}
+	}
+	let cloud = { addIncome }
+	return (
+		<incomeContext.Provider value={cloud}>{children}</incomeContext.Provider>
+	)
+}
+export default IncomeContextProvider
