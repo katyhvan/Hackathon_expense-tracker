@@ -3,16 +3,23 @@ import MainRouting from "./MainRouting";
 import AuthContextProvider from "./contexts/AuthContextProvider";
 import IncomeContextProvider from "./contexts/IncomeContextProvider";
 import "./index.css";
+import Logo from "./pages/Logo";
+import HistoryContextProvider from "./contexts/HistoryContextProvider";
+import ExpenseContextProvider from "./contexts/ExpenseContextProvider";
 
 function App() {
   return (
     <div>
-      <IncomeContextProvider>
-        <AuthContextProvider>
-          {/* <Logo /> */}
-          <MainRouting />
-        </AuthContextProvider>
-      </IncomeContextProvider>
+      <ExpenseContextProvider>
+        <HistoryContextProvider>
+          <IncomeContextProvider>
+            <AuthContextProvider>
+              {/* <Logo /> */}
+              <MainRouting />
+            </AuthContextProvider>
+          </IncomeContextProvider>
+        </HistoryContextProvider>
+      </ExpenseContextProvider>
     </div>
   );
 }

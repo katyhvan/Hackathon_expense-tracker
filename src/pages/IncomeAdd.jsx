@@ -4,15 +4,15 @@ import "../styles/incomeAdd.css";
 import { incomeContext } from "../contexts/IncomeContextProvider";
 const IncomeAdd = () => {
   const { addIncome } = useContext(incomeContext);
-  const [amount, setAmount] = useState(0);
+  const [amount1, setAmount] = useState(0);
 
   function handleAdd(e) {
     e.preventDefault(); // останавливает автообновление бразуреа при отправке данных через form
-    if (!amount.trim()) {
+    if (!amount1.trim()) {
       alert("Заполните все поля!");
       return;
     }
-    // let obj = { amount: +amount, note };
+    let amount = +amount1;
 
     addIncome(amount);
     setAmount(0);
@@ -33,7 +33,7 @@ const IncomeAdd = () => {
               className="inp1 three"
               placeholder="Amount"
               type="number"
-              value={amount}
+              value={amount1}
               onChange={e => setAmount(e.target.value)}
             />
           </div>

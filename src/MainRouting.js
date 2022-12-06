@@ -10,6 +10,7 @@ import IncomeAdd from "./pages/IncomeAdd";
 import InfoPage from "./pages/InfoPage";
 import ModalMailPage from "./pages/ModalMailPage";
 import OutputAdd from "./pages/OutputAdd";
+import HistoryPage from "./pages/HistoryPage";
 const PAGES_ROUTES = [
   {
     link: "/",
@@ -41,11 +42,11 @@ const PAGES_ROUTES = [
     element: <DiagramPage />,
     id: 7,
   },
-  // {
-  //   link: "/modal",
-  //   element: <ModalAdd />,
-  //   id: 8,
-  // },
+  {
+    link: "/history",
+    element: <HistoryPage />,
+    id: 8,
+  },
   {
     link: "/IncomeAdd",
     element: <IncomeAdd />,

@@ -3,10 +3,11 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./InfoPage.css";
 
 import logo from "../img/logo.png";
-import vector1 from "../img/Vector.jpg";
+import vector1 from "../img/vector1.svg";
+import vectornew from "../img/vector1new.svg";
+import vector2 from "../img/vector2.svg";
+import vector3 from "../img/vector3.svg";
 import vector4 from "../img/Vector.svg";
-import vector2 from "../img/Vector (1).jpg";
-import vector3 from "../img/Vector (2).jpg";
 
 const InfoPage = () => {
   const navigate = useNavigate();
@@ -23,8 +24,11 @@ const InfoPage = () => {
           <h4 className="logo_text-info">Akatscoin</h4>
         </div>
         <div className="info-nav__right-block">
-          <img src={vector1} alt="" />
+          <NavLink className="icone1" to="/history">
+            <img src={vector1} alt="" />
+          </NavLink>
           <img src={vector2} alt="" />
+
           <img src={vector3} alt="" />
         </div>
       </div>

@@ -5,13 +5,16 @@ export const incomeContext = createContext();
 const API = "http://35.203.116.125/api/v1/";
 
 const IncomeContextProvider = ({ children }) => {
-  const servise = `${API}service/`;
-  console.log(servise);
+  async function readProduct() {}
+  readProduct();
+  const service = `${API}income/`;
+  console.log(service);
   async function addIncome(amount) {
     try {
-      const formData = new FormData();
-      formData.append("income", amount);
-      await axios.post(servise, formData);
+      const form = new FormData();
+      form.append("income", amount);
+      console.log(service, form);
+      await axios.post(service, form);
     } catch (error) {
       return error;
     }
