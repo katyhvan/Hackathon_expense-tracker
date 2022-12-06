@@ -46,13 +46,23 @@
 
 .login-inp {
   padding: 15px;
-  background: rgba(36, 74, 86, 0.1);
   border: 1px solid #244a56;
   border-radius: 20px;
   font-family: "Quicksand";
   font-weight: 600;
   font-size: 24px;
   color: rgba(36, 74, 86, 0.7);
+  padding-left: 45px;
+}
+
+.login-mail {
+  background: url("../img/icons/mail-icon.svg") 10px 17px no-repeat,
+    rgba(36, 74, 86, 0.1);
+}
+
+.login-pass {
+  background: url("../img/icons/pass-icon.svg") 10px 15px no-repeat,
+    rgba(36, 74, 86, 0.1);
 }
 
 .forgot-pass {

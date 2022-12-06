@@ -31,21 +31,21 @@ const RestorePage = () => {
       <div className="restore-page">
         <h1 className="restore-title">Reset Password</h1>
         <input
-          className="restore-inp"
+          className="restore-inp code-inp"
           type="text"
           placeholder="Code"
           value={code}
           onChange={(e) => setCode(e.target.value)}
         />
         <input
-          className="restore-inp"
+          className="restore-inp new-pass-inp"
           type="password"
           placeholder="New Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
-          className="restore-inp"
+          className="restore-inp new-pass-inp"
           type="password"
           placeholder="New Password Confirmation"
           value={password2}

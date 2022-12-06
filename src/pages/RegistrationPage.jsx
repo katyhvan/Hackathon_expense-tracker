@@ -64,28 +64,28 @@ const RegistrationPage = () => {
         <h2 className="register-title">Create Account</h2>
         <form className="inputs-block">
           <input
-            className="register-inp"
+            className="register-inp username-inp"
             type="text"
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
-            className="register-inp"
+            className="register-inp email-inp"
             type="text"
             placeholder="E-Mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className="register-inp"
+            className="register-inp password-inp"
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <input
-            className="register-inp"
+            className="register-inp password-inp"
             type="password"
             placeholder="Password Confirmation"
             value={password2}

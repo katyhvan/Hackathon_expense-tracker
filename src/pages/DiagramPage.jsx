@@ -9,10 +9,14 @@ import {
   Legend,
 } from "chart.js";
 
+import logo from "../img/logo.png";
+import vector1 from "../img/Vector.jpg";
+import vector2 from "../img/Vector (1).jpg";
+import vector3 from "../img/Vector (2).jpg";
+import vector4 from "../img/Vector.svg";
+
 import "../styles/DiagramPage.css";
 import InfoPage from "./InfoPage";
-
-ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend);
 
 ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend);
 
@@ -94,6 +98,7 @@ const DiagramPage = () => {
                 </ul>
               </div>
             </div>
+            <img className="plus-btn" src={vector4} alt="" width={80} />
           </div>
         </div>
       </div>

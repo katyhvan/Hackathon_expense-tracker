@@ -85,7 +85,6 @@
 
 .register-inp {
   height: 30px;
-  background: rgba(36, 74, 86, 0.1);
   border: 1px solid #244a56;
   border-radius: 20px;
   font-family: "Quicksand", sans-serif;
@@ -93,8 +92,22 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
-  padding: 15px;
+  padding: 15px 15px 15px 45px;
   color: rgba(36, 74, 86, 0.7);
+}
+
+.username-inp {
+  background: url("../img/icons/name-icon.svg") 10px 15px no-repeat,
+    rgba(36, 74, 86, 0.1);
+}
+
+.email-inp {
+  background: url("../img/icons/mail-icon.svg") 10px 17px no-repeat,
+    rgba(36, 74, 86, 0.1);
+}
+.password-inp {
+  background: url("../img/icons/pass-icon.svg") 10px 17px no-repeat,
+    rgba(36, 74, 86, 0.1);
 }
 
 .register-btn {
@@ -141,4 +154,10 @@
 
 .login-text {
   font-weight: 400;
+}
+
+@media (max-width: 1185px) {
+  .block-right {
+    margin-left: 5vw;
+  }
 }

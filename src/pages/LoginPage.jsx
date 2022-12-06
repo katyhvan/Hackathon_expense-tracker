@@ -32,15 +32,16 @@ const LoginPage = () => {
           </div>
           <div className="form-block">
             <h2 className="login-title">Sign in</h2>
+
             <input
-              className="login-inp"
+              className="login-inp login-mail"
               type="text"
               placeholder="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
-              className="login-inp"
+              className="login-inp login-pass"
               type="password"
               placeholder="Password"
               value={password}
