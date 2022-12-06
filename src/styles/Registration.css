@@ -161,3 +161,83 @@
     margin-left: 5vw;
   }
 }
+
+@media (max-width: 1080px) {
+  .block-right {
+    margin-left: 3vw;
+  }
+  .block-left__title {
+    font-size: 58px;
+    margin-left: 0;
+  }
+  .block-left__desc {
+    margin-left: 0;
+    font-size: 32px;
+    max-width: 380px;
+  }
+  .inputs-block {
+    max-width: 380px;
+  }
+  .register-title {
+    font-size: 58px;
+  }
+  .register-btn {
+    max-width: 380px;
+    font-size: 35px;
+    height: 75px;
+  }
+  .pass-contain {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 920px) {
+  .block-left__title {
+    font-size: 48px;
+  }
+  .block-left__desc {
+    font-size: 30px;
+  }
+  .inputs-block {
+    max-width: 320px;
+  }
+  .register-btn {
+    max-width: 320px;
+    font-size: 30px;
+    height: 70px;
+  }
+  .register-title {
+    font-size: 48px;
+  }
+  .login-text,
+  .login-link {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  .register-page {
+    display: block;
+  }
+  .block-left {
+    display: none;
+  }
+  .inputs-block {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 430px) {
+  .inputs-block {
+    max-width: 310px;
+  }
+  .register-inp {
+    font-size: 20px;
+  }
+  .register-title {
+    font-size: 42px;
+  }
+  .pass-contain {
+    font-size: 11px;
+  }
+}
