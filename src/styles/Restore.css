@@ -5,7 +5,8 @@
   gap: 32px;
   width: 800px;
   height: 500px;
-  background: linear-gradient(245.28deg, #76bacf -92.1%, #ffffff 110.38%);
+  background: url("../img/restore-img.png") 100% 0 no-repeat,
+    linear-gradient(245.28deg, #76bacf -92.1%, #ffffff 110.38%);
   margin: 0 auto;
   margin-top: 20vh;
 }

@@ -41,7 +41,12 @@ const InfoPage = () => {
           <h4 className="logo_text-info">Akatscoin</h4>
         </div>
         <div className="info-nav__right-block">
-          <img src={vector1} alt="" />
+          <img
+            className="history-img"
+            src={vector1}
+            alt="history-icon"
+            onClick={() => navigate("/history")}
+          />
           <img src={vector2} alt="" />
           <img
             className="logout-img"

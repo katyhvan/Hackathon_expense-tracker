@@ -26,7 +26,7 @@ const LoginPage = () => {
     <>
       <div className="login-page">
         <div className="block__left-login">
-          <div className="logo__block-login">
+          <div className="logo__block-login" onClick={() => navigate("/")}>
             <img src={logo} alt="logo" width={79} height={53} />
             <h4 className="logo_text-login">Akatscoin</h4>
           </div>

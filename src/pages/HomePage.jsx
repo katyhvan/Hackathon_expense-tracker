@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import two from "../img/two.png";
 import "../styles/HomePage.css";
-import logo from "../img/logo.png";
 import Logo from "./Logo";
 // import mobile from "../img/mobile_home.svg";
 const HomePage = () => {

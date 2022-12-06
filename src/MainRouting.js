@@ -71,7 +71,7 @@ const PAGES_ROUTES = [
   {
     link: "/restore",
     element: <RestorePage />,
-    id: 12,
+    id: 13,
   },
 ];
 

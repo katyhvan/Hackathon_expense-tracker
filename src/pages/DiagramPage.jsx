@@ -11,7 +11,6 @@ import {
 
 import "../styles/DiagramPage.css";
 import InfoPage from "./InfoPage";
-import "./DiagramPage.css";
 
 ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend);
 
