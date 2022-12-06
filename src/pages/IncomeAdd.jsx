@@ -1,21 +1,26 @@
 import React, { useContext, useState } from 'react'
 import photo from '../img/inconeAdd.svg'
 import '../styles/incomeAdd.css'
-import { incomeContext } from '../contexts/IncomeContextProvider'
+import { incomeContext, useIncome } from '../contexts/IncomeContextProvider'
 const IncomeAdd = () => {
-	const { addIncome } = useContext(incomeContext)
-	const [amount, setAmount] = useState(0)
+	const { addIncome } = useIncome()
+	const [amount, setAmount] = useState('')
+	const [service, setServices] = useState('')
 
 	function handleAdd(e) {
 		e.preventDefault() // останавливает автообновление бразуреа при отправке данных через form
-		if (!amount.trim()) {
-			alert('Заполните все поля!')
-			return
-		}
-		// let obj = { amount: +amount, note };
+		// if (!amount.trim() || !service.trim()) {
+		// 	alert('Заполните все поля!')
+		// 	return
+		// }
 
-		addIncome(amount)
-		setAmount(0)
+		console.log(typeof service)
+		console.log(typeof amount)
+
+		addIncome(Number(service), Number(amount))
+		// addIncome(amount, service)
+		setAmount('')
+		setServices('')
 	}
 
 	return (
@@ -32,9 +37,17 @@ const IncomeAdd = () => {
 						<input
 							className='inp1 three'
 							placeholder='Amount'
-							type='number'
+							type='text'
 							value={amount}
 							onChange={e => setAmount(e.target.value)}
+						/>
+
+						<input
+							className='inp1 three'
+							placeholder='Service'
+							type='text'
+							value={service}
+							onChange={e => setServices(e.target.value)}
 						/>
 					</div>
 					<button className='btn_save' type='submit'>

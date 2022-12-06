@@ -13,7 +13,9 @@ const LoginPage = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	function handleLogin() {
+	function handleLogin(e) {
+		e.preventDefault()
+
 		if (!email.trim() || !password.trim()) {
 			alert('Some iputs are empty!')
 			return
@@ -21,7 +23,7 @@ const LoginPage = () => {
 			let formData = new FormData()
 			formData.append('email', email)
 			formData.append('password', password)
-			login(formData, email, navigate)
+			login(formData, navigate)
 		}
 	}
 
@@ -32,7 +34,7 @@ const LoginPage = () => {
 					<img src={logo} alt='logo' width={79} height={53} />
 					<h4 className='logo_text'>Akatscoin</h4>
 				</div>
-				<form className='form-block'>
+				<form className='form-block' onSubmit={e => handleLogin(e)}>
 					<h2 className='login-title'>Sign in</h2>
 					<input
 						className='login-inp'

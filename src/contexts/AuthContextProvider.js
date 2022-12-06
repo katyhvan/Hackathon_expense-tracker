@@ -23,7 +23,6 @@ const AuthContextProvider = ({ children }) => {
 			console.log(err)
 		} finally {
 			setLoading(false)
-			// console.log(formData);
 		}
 	}
 
@@ -31,12 +30,11 @@ const AuthContextProvider = ({ children }) => {
 		setLoading()
 		try {
 			const res = await axios.post(`${API}accounts/login/`, formData)
-			console.log(formData)
 			localStorage.setItem('token', JSON.stringify(res.data))
-			navigate('/info')
+			// navigate('/info')
 			console.log(res)
 		} catch (err) {
-			setError([err.response.data.detail])
+			// setError([err.response.data.detail])
 			console.log(err)
 			alert('Please check, activate or create an account')
 		} finally {
@@ -85,6 +83,7 @@ const AuthContextProvider = ({ children }) => {
 	}
 
 	async function handleLogout(formData, navigate) {
+		console.log(1234)
 		const token = JSON.parse(localStorage.getItem('token'))
 		const Authorization = `JWT ${token.access}`
 		const config = {
@@ -92,6 +91,7 @@ const AuthContextProvider = ({ children }) => {
 				Authorization,
 			},
 		}
+
 		await axios.post(`${API}accounts/logout/`, formData, config)
 		localStorage.removeItem('token')
 		setCurrentUser(false)
@@ -111,7 +111,7 @@ const AuthContextProvider = ({ children }) => {
 		getMail,
 		passReset,
 		checkAuth,
-		handleLogout,
+		// handleLogout,
 	}
 
 	return (

@@ -1,24 +1,55 @@
+import React, { createContext, useContext, useState } from 'react'
 import axios from 'axios'
-import React, { createContext } from 'react'
 
-export const incomeContext = createContext()
+const incomeContext = createContext()
+export const useIncome = () => useContext(incomeContext)
+
 const API = 'http://35.203.116.125/api/v1/'
 
 const IncomeContextProvider = ({ children }) => {
-	const servise = `${API}service/`
-	console.log(servise)
-	async function addIncome(amount) {
+	const [incomes, setIncomes] = useState([])
+
+	async function getIncome() {
 		try {
-			const formData = new FormData()
-			formData.append('income', amount)
-			await axios.post(servise, formData)
-		} catch (error) {
-			return error
+			const response = await axios(`${API}income/`)
+			setIncomes(response.data)
+		} catch (err) {
+			console.error(err)
 		}
 	}
-	let cloud = { addIncome }
+
+	async function addIncome(service, amount) {
+		try {
+			const formData = new FormData()
+			formData.append('value', amount)
+			formData.append('service', service)
+
+			// console.log(typeof amount, typeof service)
+			const tokens = JSON.parse(localStorage.getItem('token'))
+
+			const Authorization = `JWT ${tokens.access}`
+
+			const config = {
+				headers: {
+					Authorization,
+				},
+			}
+
+			await axios.post(`${API}income/`, formData, config)
+		} catch (err) {
+			console.error(err)
+		}
+	}
+
+	let values = {
+		addIncome,
+		getIncome,
+
+		incomes,
+	}
+
 	return (
-		<incomeContext.Provider value={cloud}>{children}</incomeContext.Provider>
+		<incomeContext.Provider value={values}>{children}</incomeContext.Provider>
 	)
 }
 export default IncomeContextProvider

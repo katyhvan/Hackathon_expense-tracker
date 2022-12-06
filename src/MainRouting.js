@@ -44,30 +44,25 @@ const PAGES_ROUTES = [
 		element: <DiagramPage />,
 		id: 7,
 	},
-	// {
-	//   link: "/modal",
-	//   element: <ModalAdd />,
-	//   id: 8,
-	// },
 	{
 		link: '/IncomeAdd',
 		element: <IncomeAdd />,
-		id: 9,
+		id: 8,
 	},
 	{
 		link: '/OutputAdd',
 		element: <OutputAdd />,
-		id: 10,
+		id: 9,
 	},
 	{
 		link: '/info',
 		element: <InfoPage />,
-		id: 11,
+		id: 10,
 	},
 	{
 		link: '/modalMail',
 		element: <ModalMailPage />,
-		id: 12,
+		id: 11,
 	},
 	{
 		link: '/restore',
