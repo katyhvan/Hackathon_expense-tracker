@@ -1,5 +1,5 @@
-import React from "react";
-import InfoPage from "./InfoPage";
+import React from 'react'
+import InfoPage from './InfoPage'
 
 const OutputPage = () => {
   return (
@@ -43,7 +43,7 @@ const OutputPage = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default OutputPage;
+export default OutputPage

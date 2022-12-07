@@ -18,7 +18,7 @@ const LoginPage = () => {
       let formData = new FormData();
       formData.append("email", email);
       formData.append("password", password);
-      login(formData, navigate);
+      login(formData, email, navigate);
     }
   }
 
@@ -27,7 +27,13 @@ const LoginPage = () => {
       <div className="login-page">
         <div className="block__left-login">
           <div className="logo__block-login" onClick={() => navigate("/")}>
-            <img src={logo} alt="logo" width={79} height={53} />
+            <img
+              className="logo"
+              src={logo}
+              alt="logo"
+              width={79}
+              height={53}
+            />
             <h4 className="logo_text-login">Akatscoin</h4>
           </div>
           <div className="form-block">

@@ -1,20 +1,16 @@
-import React from "react";
-import photo from "../img/OutputAdd.svg";
+import React from 'react'
+import '../styles/outputAdd.css'
+
 const OutputAdd = () => {
   return (
     <>
       <form>
-        <img
-          style={{ position: "absolute", zIndex: 2, bottom: 0, right: 0 }}
-          src={photo}
-          alt=""
-        />
-        <div className="add">
+        <div className="add-output">
           <h2>Add Expence </h2>
           <div className="add_inp">
             <input className="inp one" placeholder="Date" type="text" />
             <select className="inp two" name="select">
-              <option style={{ display: "none" }} value="value1" selected>
+              <option style={{ display: 'none' }} value="value1" selected>
                 Category
               </option>
               <option value="Food">Food</option>
@@ -32,7 +28,7 @@ const OutputAdd = () => {
         </div>
       </form>
     </>
-  );
-};
+  )
+}
 
-export default OutputAdd;
+export default OutputAdd

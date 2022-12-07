@@ -1,31 +1,38 @@
-import React, { useState, useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContextProvider";
-import "./InfoPage.css";
+import React, { useState, useEffect } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContextProvider'
+import '../styles/InfoPage.css'
 
-import logo from "../img/logo.png";
-import vector1 from "../img/Vector.jpg";
-import vector4 from "../img/Vector.svg";
-import vector2 from "../img/Vector (1).jpg";
-import vector3 from "../img/Vector (2).jpg";
+import logo from '../img/logo.png'
+import vector1 from '../img/Vector.jpg'
+import vector4 from '../img/Vector.svg'
+import vector2 from '../img/Vector (1).jpg'
+import vector3 from '../img/Vector (2).jpg'
+import Avatar from '@mui/material/Avatar'
 
 const InfoPage = () => {
-  const navigate = useNavigate();
-  const { checkAuth, handleLogout } = useAuth();
-  const [modal, setModal] = useState("none");
+  const navigate = useNavigate()
+  const { currentUser, checkAuth, handleLogout, notifications } = useAuth()
+  const [modal, setModal] = useState('none')
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      checkAuth();
+    if (localStorage.getItem('token')) {
+      checkAuth()
     }
-  }, []);
+  }, [])
 
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem('token'))
 
   function logout() {
-    const formData = new FormData();
-    formData.append("refresh", token.refresh);
-    handleLogout(formData, navigate);
+    const formData = new FormData()
+    formData.append('refresh', token.refresh)
+    handleLogout(formData, navigate)
+  }
+
+  function handleNotifications() {
+    const formData = new FormData()
+    formData.append('refresh', token.refresh)
+    notifications(formData)
   }
 
   return (
@@ -34,20 +41,34 @@ const InfoPage = () => {
         <div
           className="info-nav__left-block"
           onClick={() => {
-            navigate("/");
+            navigate('/')
           }}
         >
-          <img src={logo} width={79} height={53} alt="" />
+          <img className="logo-nav" src={logo} width={79} height={53} alt="" />
           <h4 className="logo_text-info">Akatscoin</h4>
         </div>
         <div className="info-nav__right-block">
+          <Avatar
+            src={currentUser}
+            alt={currentUser}
+            style={
+              currentUser
+                ? { backgroundColor: '#BA131A' }
+                : { backgroundColor: 'grey' }
+            }
+          />
           <img
             className="history-img"
             src={vector1}
             alt="history-icon"
-            onClick={() => navigate("/history")}
+            onClick={() => navigate('/history')}
           />
-          <img src={vector2} alt="" />
+          <img
+            className="notifications-img"
+            src={vector2}
+            alt="notifications-icon"
+            onClick={() => handleNotifications()}
+          />
           <img
             className="logout-img"
             src={vector3}
@@ -58,7 +79,7 @@ const InfoPage = () => {
       </div>
       <div className="containerInfo">
         <NavLink to="/income">
-          <div className="info_block">
+          <div className="info_block income">
             <h3>10,000</h3>
             <p className="info-block-desc">Income</p>
           </div>
@@ -76,14 +97,14 @@ const InfoPage = () => {
           </div>
         </Link>
         <NavLink to="/diagram">
-          <div className="info_block">
+          <div className="info_block diagram">
             <h3>Graph</h3>
           </div>
         </NavLink>
       </div>
 
       <img
-        onClick={() => setModal("block")}
+        onClick={() => setModal('block')}
         className="btn_add"
         src={vector4}
         alt=""
@@ -91,7 +112,7 @@ const InfoPage = () => {
 
       <div
         style={{ display: modal }}
-        onClick={() => setModal("none")}
+        onClick={() => setModal('none')}
         className="modal"
       >
         <div className="modal_btn">
@@ -104,6 +125,6 @@ const InfoPage = () => {
         </div>
       </div>
     </>
-  );
-};
-export default InfoPage;
+  )
+}
+export default InfoPage

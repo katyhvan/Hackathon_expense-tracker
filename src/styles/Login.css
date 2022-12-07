@@ -201,6 +201,10 @@
   .login-title {
     text-align: center;
   }
+  .logo,
+  .logo_text-login {
+    display: none;
+  }
 }
 
 @media (max-width: 450px) {
@@ -212,5 +216,8 @@
   }
   .login-title {
     font-size: 45px;
+  }
+  .login-inp {
+    font-size: 20px;
   }
 }

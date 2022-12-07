@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Pie } from "react-chartjs-2";
+import React, { useState, useEffect } from 'react'
+import { Pie } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,25 +7,25 @@ import {
   ArcElement,
   Title,
   Legend,
-} from "chart.js";
+} from 'chart.js'
 
-import logo from "../img/logo.png";
-import vector1 from "../img/Vector.jpg";
-import vector2 from "../img/Vector (1).jpg";
-import vector3 from "../img/Vector (2).jpg";
-import vector4 from "../img/Vector.svg";
+import logo from '../img/logo.png'
+import vector1 from '../img/Vector.jpg'
+import vector2 from '../img/Vector (1).jpg'
+import vector3 from '../img/Vector (2).jpg'
+import vector4 from '../img/Vector.svg'
 
-import "../styles/DiagramPage.css";
-import InfoPage from "./InfoPage";
+import '../styles/DiagramPage.css'
+import InfoPage from './InfoPage'
 
-ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend);
+ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend)
 
 const DiagramPage = () => {
   const [chartData, setChartData] = useState({
     datasets: [],
-  });
+  })
 
-  const [chartOptions, setChartOptions] = useState({});
+  const [chartOptions, setChartOptions] = useState({})
 
   useEffect(() => {
     setChartData({
@@ -33,25 +33,25 @@ const DiagramPage = () => {
         {
           data: [10, 10, 10, 10, 10, 10],
           backgroundColor: [
-            "#BA131A",
-            "#DE565C",
-            "#FF7278",
-            "#FFA4A7",
-            "#CE8487",
-            "rgba(141, 89, 91, 1)",
+            '#BA131A',
+            '#DE565C',
+            '#FF7278',
+            '#FFA4A7',
+            '#CE8487',
+            'rgba(141, 89, 91, 1)',
           ],
         },
       ],
-    });
+    })
     setChartOptions({
       responsive: true,
       plugins: {
         legend: {
-          position: "top",
+          position: 'top',
         },
       },
-    });
-  }, []);
+    })
+  }, [])
 
   return (
     <>
@@ -103,7 +103,7 @@ const DiagramPage = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default DiagramPage;
+export default DiagramPage

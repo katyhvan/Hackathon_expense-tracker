@@ -1,10 +1,10 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import "../styles/HomePage.css";
-import Logo from "./Logo";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import '../styles/HomePage.css'
+import Logo from './Logo'
 // import mobile from "../img/mobile_home.svg";
 const HomePage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <>
@@ -19,11 +19,11 @@ const HomePage = () => {
         <div className="block_right">
           <h2>Take your finances to the next levels!</h2>
           <h4>Don't hesite, money matters.</h4>
-          <button onClick={() => navigate("/registration")}>START</button>
+          <button onClick={() => navigate('/registration')}>START</button>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

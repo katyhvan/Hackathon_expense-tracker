@@ -9,7 +9,6 @@ function App() {
     <div>
       <IncomeContextProvider>
         <AuthContextProvider>
-          {/* <Logo /> */}
           <MainRouting />
         </AuthContextProvider>
       </IncomeContextProvider>
