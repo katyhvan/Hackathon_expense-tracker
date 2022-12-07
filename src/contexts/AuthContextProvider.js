@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 import axios from 'axios'
+import { json } from 'react-router-dom'
 
 const authContext = createContext()
 export const useAuth = () => useContext(authContext)
@@ -7,7 +8,7 @@ export const useAuth = () => useContext(authContext)
 const API = 'http://35.203.116.125/api/v1/'
 
 const AuthContextProvider = ({ children }) => {
-	const [currentUser, setCurrentUser] = useState(false)
+	const [currentUser, setCurrentUser] = useState(null)
 	const [error, setError] = useState(false)
 	const [loading, setLoading] = useState(false)
 
@@ -26,19 +27,24 @@ const AuthContextProvider = ({ children }) => {
 		}
 	}
 
-	async function login(formData, navigate) {
+	async function login(formData, email, navigate) {
 		setLoading()
 		try {
 			const res = await axios.post(`${API}accounts/login/`, formData)
+
 			localStorage.setItem('token', JSON.stringify(res.data))
-			// navigate('/info')
-			console.log(res)
+
+			setCurrentUser(email)
+
+			localStorage.setItem('email', JSON.stringify(email))
+
+			navigate('/info')
 		} catch (err) {
 			// setError([err.response.data.detail])
 			console.log(err)
 			alert('Please check, activate or create an account')
 		} finally {
-			setLoading()
+			// setLoading()
 		}
 	}
 
@@ -82,7 +88,10 @@ const AuthContextProvider = ({ children }) => {
 		} catch (error) {}
 	}
 
-	async function handleLogout(formData, navigate) {
+	async function handleLogout(refresh, navigate) {
+		let formData = new FormData()
+		formData.append('refresh', refresh)
+
 		console.log(1234)
 		const token = JSON.parse(localStorage.getItem('token'))
 		const Authorization = `JWT ${token.access}`
@@ -94,6 +103,7 @@ const AuthContextProvider = ({ children }) => {
 
 		await axios.post(`${API}accounts/logout/`, formData, config)
 		localStorage.removeItem('token')
+		localStorage.removeItem('email')
 		setCurrentUser(false)
 		navigate('/')
 	}
@@ -111,7 +121,7 @@ const AuthContextProvider = ({ children }) => {
 		getMail,
 		passReset,
 		checkAuth,
-		// handleLogout,
+		handleLogout,
 	}
 
 	return (

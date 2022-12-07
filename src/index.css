@@ -16,8 +16,20 @@ input:focus {
 }
 
 .active {
-  outline: 1px solid #244a56;
+  background: rgb(68, 68, 68);
   border-radius: 30px;
+}
+
+.active>.info_block {
+  box-shadow: 7px 8px 18px -3px #ee352b;
+}
+
+.active>div>h3 {
+  color: bisque;
+}
+
+.active>div>p {
+  color: bisque;
 }
 
 .add {
@@ -26,4 +38,9 @@ input:focus {
   width: 100%;
   height: 100vh;
   background: linear-gradient(245.28deg, #76bacf 0.9%, #ffffff 74.38%);
+
+}
+
+.active img {
+  background: url("./img/vector1new.svg") no-repeat;
 }

@@ -3,29 +3,32 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContextProvider'
 import './InfoPage.css'
 
-import logo from '../img/logo.png'
-import vector1 from '../img/Vector.jpg'
+import logo from '../img/Rectangle 1.jpg'
+import vector1 from '../img/Vector (2).svg'
+import vector2 from '../img/Vector (1).svg'
+import vector3 from '../img/Vector (3).svg'
 import vector4 from '../img/Vector.svg'
-import vector2 from '../img/Vector (1).jpg'
-import vector3 from '../img/Vector (2).jpg'
+import { useIncome } from '../contexts/IncomeContextProvider'
+import { useExpense } from '../contexts/ExpenseContextProvider'
 
 const InfoPage = () => {
 	const navigate = useNavigate()
 	const { checkAuth, handleLogout } = useAuth()
+	const { incomes, totalIncome, getTotalIncome } = useIncome()
+	const { expenses, totalExpense, getTotalExpense } = useExpense()
 	const [modal, setModal] = useState('none')
 
 	useEffect(() => {
-		if (localStorage.getItem('token')) {
-			checkAuth()
-		}
-	}, [])
+		getTotalIncome()
+	}, [incomes])
 
-	const token = JSON.parse(localStorage.getItem('token'))
+	useEffect(() => {
+		getTotalExpense()
+	}, [expenses])
 
 	function logout() {
-		const formData = new FormData()
-		formData.append('refresh', token.refresh)
-		handleLogout(formData, navigate)
+		const token = JSON.parse(localStorage.getItem('token'))
+		handleLogout(token.refresh, navigate)
 	}
 
 	return (
@@ -54,18 +57,18 @@ const InfoPage = () => {
 			<div className='containerInfo'>
 				<NavLink to='/income'>
 					<div className='info_block'>
-						<h3>10,000</h3>
+						<h3>{totalIncome}</h3>
 						<p className='info-block-desc'>Income</p>
 					</div>
 				</NavLink>
 				<NavLink to='/output'>
 					<div className='info_block'>
-						<h3>5,000</h3>
+						<h3>{totalExpense}</h3>
 						<p className='info-block-desc'>Expense</p>
 					</div>
 				</NavLink>
-				<Link>
-					<div className='info_block'>
+				<Link className='active'>
+					<div className='info_block balance-block'>
 						<h3>30,000</h3>
 						<p className='info-block-desc'>Balance</p>
 					</div>

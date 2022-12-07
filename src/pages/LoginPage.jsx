@@ -23,7 +23,7 @@ const LoginPage = () => {
 			let formData = new FormData()
 			formData.append('email', email)
 			formData.append('password', password)
-			login(formData, navigate)
+			login(formData, email, navigate)
 		}
 	}
 

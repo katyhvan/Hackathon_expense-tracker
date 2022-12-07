@@ -1,0 +1,55 @@
+.edit-income-modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0, 0, 0, .6);
+  backdrop-filter: blur(8px);
+}
+
+.edit-income__close-btn {
+  cursor: no-drop;
+  position: absolute;
+  right: 100px;
+  top: 100px;
+  rotate: 180deg;
+}
+
+.edit-income-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-income-input {
+  width: 400px;
+  height: 61px;
+  margin-bottom: 20px;
+  height: 61px;
+  padding-left: 60px;
+  font-weight: 500;
+  font-size: 24px;
+  color: rgba(204, 204, 204, 0.787);
+  border: 2px solid #077292;
+  border-radius: 20px;
+
+  background: rgba(1, 35, 45, 0.787) url(http://localhost:3000/static/media/amount.0835183….svg)no-repeat 20px;
+  background-size: auto 50%;
+}
+
+.edit-income-button {
+  cursor: pointer;
+  width: 230px;
+  height: 61px;
+  font-size: 24px;
+  border: none;
+  color: #ffffff;
+  background: #008bb6;
+  border-radius: 20px;
+}

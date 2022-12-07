@@ -2,10 +2,13 @@ import React, { useContext, useState } from 'react'
 import photo from '../img/inconeAdd.svg'
 import '../styles/incomeAdd.css'
 import { incomeContext, useIncome } from '../contexts/IncomeContextProvider'
+import { useNavigate } from 'react-router-dom'
 const IncomeAdd = () => {
 	const { addIncome } = useIncome()
 	const [amount, setAmount] = useState('')
 	const [service, setServices] = useState('')
+
+	const navigate = useNavigate()
 
 	function handleAdd(e) {
 		e.preventDefault() // останавливает автообновление бразуреа при отправке данных через form
@@ -14,10 +17,7 @@ const IncomeAdd = () => {
 		// 	return
 		// }
 
-		console.log(typeof service)
-		console.log(typeof amount)
-
-		addIncome(Number(service), Number(amount))
+		addIncome(Number(service), Number(amount), navigate)
 		// addIncome(amount, service)
 		setAmount('')
 		setServices('')

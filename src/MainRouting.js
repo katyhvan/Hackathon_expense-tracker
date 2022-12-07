@@ -9,10 +9,9 @@ import DiagramPage from './pages/DiagramPage'
 import IncomeAdd from './pages/IncomeAdd'
 import InfoPage from './pages/InfoPage'
 import ModalMailPage from './pages/ModalMailPage'
-// import OutputAdd from './pages/OutputAdd'
+import OutputAdd from './pages/OutputAdd'
 import RestorePage from './pages/RestorePage'
 
-import OutputAdd from './pages/OutputAdd'
 const PAGES_ROUTES = [
 	{
 		link: '/',
