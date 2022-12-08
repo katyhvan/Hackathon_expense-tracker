@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContextProvider'
+import Avatar from '@mui/material/Avatar'
 import '../styles/InfoPage.css'
 
 import logo from '../img/logo.png'
-import vector1 from '../img/Vector.jpg'
+import vector1 from '../img/Vector (2).svg'
+import vector2 from '../img/Vector (1).svg'
+import vector3 from '../img/Vector (3).svg'
 import vector4 from '../img/Vector.svg'
-import vector2 from '../img/Vector (1).jpg'
-import vector3 from '../img/Vector (2).jpg'
-import Avatar from '@mui/material/Avatar'
 
 const InfoPage = () => {
   const navigate = useNavigate()
-  const { currentUser, checkAuth, handleLogout, notifications } = useAuth()
+  const { currentUser, checkAuth, notifications, handleLogout } = useAuth()
   const [modal, setModal] = useState('none')
 
   useEffect(() => {
@@ -21,15 +21,15 @@ const InfoPage = () => {
     }
   }, [])
 
-  const token = JSON.parse(localStorage.getItem('token'))
-
   function logout() {
+    const token = JSON.parse(localStorage.getItem('token'))
     const formData = new FormData()
     formData.append('refresh', token.refresh)
     handleLogout(formData, navigate)
   }
 
   function handleNotifications() {
+    const token = JSON.parse(localStorage.getItem('token'))
     const formData = new FormData()
     formData.append('refresh', token.refresh)
     notifications(formData)
@@ -44,7 +44,7 @@ const InfoPage = () => {
             navigate('/')
           }}
         >
-          <img className="logo-nav" src={logo} width={79} height={53} alt="" />
+          <img src={logo} width={79} height={53} alt="" />
           <h4 className="logo_text-info">Akatscoin</h4>
         </div>
         <div className="info-nav__right-block">
@@ -57,12 +57,7 @@ const InfoPage = () => {
                 : { backgroundColor: 'grey' }
             }
           />
-          <img
-            className="history-img"
-            src={vector1}
-            alt="history-icon"
-            onClick={() => navigate('/history')}
-          />
+          <img src={vector1} alt="" />
           <img
             className="notifications-img"
             src={vector2}
@@ -79,7 +74,7 @@ const InfoPage = () => {
       </div>
       <div className="containerInfo">
         <NavLink to="/income">
-          <div className="info_block income">
+          <div className="info_block">
             <h3>10,000</h3>
             <p className="info-block-desc">Income</p>
           </div>
@@ -97,7 +92,7 @@ const InfoPage = () => {
           </div>
         </Link>
         <NavLink to="/diagram">
-          <div className="info_block diagram">
+          <div className="info_block">
             <h3>Graph</h3>
           </div>
         </NavLink>

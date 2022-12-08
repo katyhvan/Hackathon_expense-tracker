@@ -11,6 +11,14 @@
   margin-top: 20px;
 }
 
+.logo_title {
+  font-family: 'Anek Devanagari';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  margin-top: 20px;
+}
+
 .diagram-nav__right-block {
   width: 155px;
   display: flex;

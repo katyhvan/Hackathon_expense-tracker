@@ -68,19 +68,18 @@ const AuthContextProvider = ({ children }) => {
     let token = JSON.parse(localStorage.getItem('token'))
 
     try {
-      let Autorization = `JWT ${token.access}`
+      let Autorization = `Token ${token.access}`
       let res = await axios.post(
         `${API}accounts/logout/`,
         { refresh: token.refresh },
         { headers: { Autorization } }
       )
+
       localStorage.setItem(
         'token',
         JSON.stringify({ refresh: token.refresh, access: token.access })
       )
-    } catch (error) {
-      setError(error)
-    }
+    } catch (error) {}
   }
 
   async function handleLogout(formData, navigate) {
@@ -93,6 +92,7 @@ const AuthContextProvider = ({ children }) => {
     }
     await axios.post(`${API}accounts/logout/`, formData, config)
     localStorage.removeItem('token')
+    localStorage.removeItem('email')
     setCurrentUser(false)
     navigate('/')
   }

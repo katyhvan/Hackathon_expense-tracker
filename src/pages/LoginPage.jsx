@@ -1,24 +1,25 @@
-import React, { useState } from "react";
-import { useAuth } from "../contexts/AuthContextProvider";
-import { useNavigate } from "react-router-dom";
-import logo from "../img/logo.png";
-import "../styles/Login.css";
+import React, { useState } from 'react'
+import { useAuth } from '../contexts/AuthContextProvider'
+import { useNavigate } from 'react-router-dom'
+import logo from '../img/Rectangle 1.svg'
+
+import '../styles/Login.css'
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const { error, setError, loading, login } = useAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate()
+  const { error, setError, loading, login } = useAuth()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   function handleLogin() {
     if (!email.trim() || !password.trim()) {
-      alert("Some inputs are empty!");
-      return;
+      alert('Some inputs are empty!')
+      return
     } else {
-      let formData = new FormData();
-      formData.append("email", email);
-      formData.append("password", password);
-      login(formData, email, navigate);
+      let formData = new FormData()
+      formData.append('email', email)
+      formData.append('password', password)
+      login(formData, email, navigate)
     }
   }
 
@@ -26,7 +27,7 @@ const LoginPage = () => {
     <>
       <div className="login-page">
         <div className="block__left-login">
-          <div className="logo__block-login" onClick={() => navigate("/")}>
+          <div className="logo__block-login" onClick={() => navigate('/')}>
             <img
               className="logo"
               src={logo}
@@ -53,7 +54,7 @@ const LoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <p className="forgot-pass" onClick={() => navigate("/modalMail")}>
+            <p className="forgot-pass" onClick={() => navigate('/modalMail')}>
               Forgot Password
             </p>
             <button className="login-btn" onClick={handleLogin}>
@@ -63,7 +64,7 @@ const LoginPage = () => {
               If you don't have an account
               <span
                 className="create-link"
-                onClick={() => navigate("/registration")}
+                onClick={() => navigate('/registration')}
               >
                 Sign up
               </span>
@@ -76,7 +77,7 @@ const LoginPage = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage

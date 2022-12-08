@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/HomePage.css'
 import Logo from './Logo'
-// import mobile from "../img/mobile_home.svg";
+
 const HomePage = () => {
   const navigate = useNavigate()
 
