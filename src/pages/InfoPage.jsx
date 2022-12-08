@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContextProvider'
 import './InfoPage.css'
 
-import logo from '../img/Rectangle 1.jpg'
+import logo from '../img/Rectangle 1.svg'
 import vector1 from '../img/Vector (2).svg'
 import vector2 from '../img/Vector (1).svg'
 import vector3 from '../img/Vector (3).svg'
@@ -15,16 +15,11 @@ const InfoPage = () => {
 	const navigate = useNavigate()
 	const { checkAuth, handleLogout } = useAuth()
 	const { incomes, totalIncome, getTotalIncome } = useIncome()
-	const { expenses, totalExpense, getTotalExpense } = useExpense()
 	const [modal, setModal] = useState('none')
 
 	useEffect(() => {
 		getTotalIncome()
-	}, [incomes])
-
-	useEffect(() => {
-		getTotalExpense()
-	}, [expenses])
+	}, [])
 
 	function logout() {
 		const token = JSON.parse(localStorage.getItem('token'))
@@ -57,22 +52,21 @@ const InfoPage = () => {
 			<div className='containerInfo'>
 				<NavLink to='/income'>
 					<div className='info_block'>
-						<h3>{totalIncome}</h3>
+						{/* <h3>{totalIncome[0].income}</h3> */}
 						<p className='info-block-desc'>Income</p>
 					</div>
 				</NavLink>
 				<NavLink to='/output'>
 					<div className='info_block'>
-						<h3>{totalExpense}</h3>
+						{/* <h3>{totalIncome[0].expense}</h3> */}
+						{/* {totalIncome[0].expense} */}
 						<p className='info-block-desc'>Expense</p>
 					</div>
 				</NavLink>
-				<Link className='active'>
-					<div className='info_block balance-block'>
-						<h3>30,000</h3>
-						<p className='info-block-desc'>Balance</p>
-					</div>
-				</Link>
+				<div className='info_block balance-block'>
+					{/* <h3>{totalIncome[0].balance}</h3> */}
+					<p className='info-block-desc'>Balance</p>
+				</div>
 				<NavLink to='/diagram'>
 					<div className='info_block'>
 						<h3>Graph</h3>

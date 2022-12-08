@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../contexts/AuthContextProvider'
 import { useNavigate } from 'react-router-dom'
-import logo from '../img/logo.png'
+import logo from '../img/Rectangle 1.svg'
 import '../styles/Registration.css'
 
 const RegistrationPage = () => {
@@ -52,7 +52,7 @@ const RegistrationPage = () => {
 		<div className='register-page'>
 			<div className='block-left'>
 				<div className='logo__block' onClick={() => navigate('/')}>
-					<img src={logo} alt='logo' />
+					<img src={logo} alt='logo' width={50} height={30} />
 					<h4 className='logo_text'>Akatscoin</h4>
 				</div>
 				<div className='title-block'>

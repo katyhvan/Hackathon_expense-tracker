@@ -92,7 +92,6 @@ const AuthContextProvider = ({ children }) => {
 		let formData = new FormData()
 		formData.append('refresh', refresh)
 
-		console.log(1234)
 		const token = JSON.parse(localStorage.getItem('token'))
 		const Authorization = `JWT ${token.access}`
 		const config = {

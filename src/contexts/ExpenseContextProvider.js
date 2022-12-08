@@ -1,5 +1,11 @@
 import axios from 'axios'
-import React, { createContext, useContext, useReducer, useState } from 'react'
+import React, {
+	createContext,
+	useContext,
+	useReducer,
+	useState,
+	useEffect,
+} from 'react'
 
 const expenseContext = createContext()
 export const useExpense = () => useContext(expenseContext)
@@ -8,7 +14,7 @@ const API = 'http://35.203.116.125/api/v1/'
 const INIT_STATE = {
 	expenses: [],
 	oneExpense: null,
-	totalExpense: 0,
+	totalExpense: [],
 }
 
 function reducer(state = INIT_STATE, action) {
@@ -26,6 +32,12 @@ function reducer(state = INIT_STATE, action) {
 
 const ExpenseContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, INIT_STATE)
+
+	const [food, setFood] = useState(0)
+	const [education, setEducation] = useState(0)
+	const [beauty, setBeauty] = useState(0)
+	const [healt, setHealt] = useState(0)
+	const [transportation, setTransportation] = useState(0)
 
 	async function getExpense() {
 		try {
@@ -54,15 +66,69 @@ const ExpenseContextProvider = ({ children }) => {
 		}
 	}
 
-	function getTotalExpense() {
-		if (state.expenses.length !== 0) {
-			let total = state.expenses.reduce((a, b) => (a += b.value), 0)
+	async function getTotalExpense() {
+		try {
+			const tokens = JSON.parse(localStorage.getItem('token'))
+
+			const Authorization = `JWT ${tokens.access}`
+
+			const config = {
+				headers: {
+					Authorization,
+				},
+			}
+
+			let { data } = await axios(`${API}service/`, config)
 
 			dispatch({
 				type: 'GET_TOTAL_EXPENSE',
-				payload: total,
+				payload: data,
 			})
+		} catch (err) {
+			console.log(err)
 		}
+		// if (state.expenses.length !== 0) {
+		// 	let total = state.expenses.reduce((a, b) => (a += b.value), 0)
+
+		// 	dispatch({
+		// 		type: 'GET_TOTAL_EXPENSE',
+		// 		payload: total,
+		// 	})
+		// }
+	}
+
+	function showDiagram() {
+		let foods = []
+		let educations = []
+		let beautys = []
+		let healts = []
+		let transportations = []
+
+		// useEffect(() => {
+		state.expenses.forEach(item => {
+			if (item.category == 'food') {
+				foods.push(item.value)
+				let totalFood = foods.reduce((pV, next) => (pV += next), 0)
+				setFood(totalFood)
+			} else if (item.category == 'education') {
+				educations.push(item.value)
+				let totalEducation = educations.reduce((pV, next) => (pV += next), 0)
+				setEducation(totalEducation)
+			} else if (item.category == 'beauty') {
+				beautys.push(item.value)
+				let totalBeauty = beautys.reduce((pV, next) => (pV += next), 0)
+				setBeauty(totalBeauty)
+			} else if (item.category == 'healt') {
+				healts.push(item.value)
+				let totalHealt = healts.reduce((pV, next) => (pV += next), 0)
+				setHealt(totalHealt)
+			} else if (item.category == 'transportation') {
+				transportations.push(item.value)
+				let totalTran = transportations.reduce((pV, next) => (pV += next), 0)
+				setTransportation(totalTran)
+			}
+		})
+		// }, [])
 	}
 
 	async function addExpense(category, amount, note, service, navigate) {
@@ -153,10 +219,16 @@ const ExpenseContextProvider = ({ children }) => {
 		getOneExpense,
 		saveExpenseChanges,
 		getTotalExpense,
+		showDiagram,
 
 		expenses: state.expenses,
 		totalExpense: state.totalExpense,
 		oneExpense: state.oneExpense,
+		food,
+		education,
+		beauty,
+		healt,
+		transportation,
 	}
 	return (
 		<expenseContext.Provider value={values}>{children}</expenseContext.Provider>

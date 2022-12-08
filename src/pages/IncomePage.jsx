@@ -81,10 +81,7 @@ const IncomePage = () => {
 									}}
 								>
 									<div className='card_txt'>
-										<p>
-											{item.created_date} <br />
-											{item.id}
-										</p>
+										<p>{item.time}</p>
 									</div>
 									<div className='card_txt'>
 										<p>{item.value}$</p>

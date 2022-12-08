@@ -10,6 +10,8 @@ const OutputPage = () => {
 
 	const [open, setOpen] = useState(false)
 
+	let foods = []
+
 	const {
 		getExpense,
 		expenses,
@@ -96,9 +98,12 @@ const OutputPage = () => {
 								}}
 							>
 								<div className='card_txt'>
-									<p>{item.created_date}</p>
+									<p>{item.time}</p>
 								</div>
-								<div className='card_txt'>
+								<div
+									className='card_txt'
+									style={{ textTransform: 'capitalize' }}
+								>
 									<p>{item.category}</p>
 								</div>
 								<div className='card_txt'>

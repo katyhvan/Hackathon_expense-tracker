@@ -16,20 +16,20 @@ input:focus {
 }
 
 .active {
-  background: rgb(68, 68, 68);
   border-radius: 30px;
 }
 
 .active>.info_block {
-  box-shadow: 7px 8px 18px -3px #ee352b;
+  background: rgba(102, 102, 102, .4);
+  box-shadow: 7px 8px 18px -3px #909090;
 }
 
 .active>div>h3 {
-  color: bisque;
+  color: rgb(76, 76, 76);
 }
 
 .active>div>p {
-  color: bisque;
+  color: rgb(76, 76, 76);
 }
 
 .add {

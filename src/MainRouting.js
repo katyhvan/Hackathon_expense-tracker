@@ -29,6 +29,11 @@ const PAGES_ROUTES = [
 		id: 3,
 	},
 	{
+		link: '/restore',
+		element: <RestorePage />,
+		id: 4,
+	},
+	{
 		link: '/income',
 		element: <IncomePage />,
 		id: 5,
@@ -62,11 +67,6 @@ const PAGES_ROUTES = [
 		link: '/modalMail',
 		element: <ModalMailPage />,
 		id: 11,
-	},
-	{
-		link: '/restore',
-		element: <RestorePage />,
-		id: 12,
 	},
 ]
 

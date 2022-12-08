@@ -10,8 +10,10 @@
 }
 
 .logo__block-login {
-  width: 16.2vw;
+  width: 13vw;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 2.2vw;
 }
 

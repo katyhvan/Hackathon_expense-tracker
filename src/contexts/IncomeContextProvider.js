@@ -9,7 +9,7 @@ const API = 'http://35.203.116.125/api/v1/'
 const INIT_STATE = {
 	incomes: [],
 	oneIncome: null,
-	totalIncome: 0,
+	totalIncome: [],
 }
 
 function reducer(state = INIT_STATE, action) {
@@ -45,14 +45,26 @@ const IncomeContextProvider = ({ children }) => {
 		}
 	}
 
-	function getTotalIncome() {
-		if (state.incomes.length !== 0) {
-			let total = state.incomes.reduce((a, b) => (a += b.value), 0)
+	async function getTotalIncome() {
+		try {
+			const tokens = JSON.parse(localStorage.getItem('token'))
+
+			const Authorization = `JWT ${tokens.access}`
+
+			const config = {
+				headers: {
+					Authorization,
+				},
+			}
+
+			let { data } = await axios(`${API}service/`, config)
 
 			dispatch({
 				type: 'GET_TOTAL_INCOME',
-				payload: total,
+				payload: data,
 			})
+		} catch (err) {
+			console.log(err)
 		}
 	}
 

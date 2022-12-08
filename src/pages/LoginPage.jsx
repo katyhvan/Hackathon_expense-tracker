@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContextProvider'
 import { useNavigate } from 'react-router-dom'
-import logo from '../img/logo.png'
+import logo from '../img/Rectangle 1.svg'
 import background from '../img/login-page/background-login.png'
 import decor from '../img/login-page/decor-img.png'
 
@@ -56,6 +56,8 @@ const LoginPage = () => {
 				</form>
 			</div>
 			<div className='block__right-login'>
+				<h2 className='welcome-title'>Welcome Back</h2>
+				<p className='welcome-desc'>Glad to see you again</p>
 				{/* <img className="back-img" src={background} alt="background" />
         <img className="decor-img" src={decor} alt="decor" /> */}
 			</div>
