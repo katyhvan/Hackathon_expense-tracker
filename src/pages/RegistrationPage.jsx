@@ -92,7 +92,7 @@ const RegistrationPage = () => {
             onChange={(e) => setPassword2(e.target.value)}
           />
           <span className="pass-contain">
-            *Password must contain 8 characters (letters and numbers){' '}
+            *Password must contain 8 characters (letters and numbers)
           </span>
           <button className="register-btn" onClick={handleSave}>
             Sign Up
