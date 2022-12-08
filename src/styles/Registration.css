@@ -14,7 +14,12 @@
 
 .block-left {
   width: 40vw;
-  background: linear-gradient(21.36deg, rgba(255, 255, 255, 0.54) 17.62%, rgba(93, 154, 173, 0.54) 100%), url(../img/circle.png) 0% 100% no-repeat;
+  background: linear-gradient(
+      21.36deg,
+      rgba(255, 255, 255, 0.54) 17.62%,
+      rgba(93, 154, 173, 0.54) 100%
+    ),
+    url(../img/circle.png) 0% 100% no-repeat;
   padding: 35px 65px;
 }
 
@@ -25,7 +30,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 
 .logo__block {
   width: 170px;
@@ -51,6 +55,7 @@
 }
 
 .block-left__title {
+  margin-top: 40px;
   font-family: "Anek Devanagari";
   font-style: normal;
   font-weight: 600;
@@ -105,12 +110,12 @@
   font-size: 40px;
   color: #ffffff;
   margin: 2px auto 15px;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .register-btn:hover {
   box-shadow: 0 20px 30px -20px black;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .login-link,

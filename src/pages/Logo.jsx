@@ -6,10 +6,10 @@ const Logo = () => {
     <>
       <Link to="/">
         <img
+          className="logo"
           style={{
-            position: "relative",
+            position: "absolute",
             top: "15px",
-            marginBottom: "30px",
             left: "50px",
           }}
           src={logo}

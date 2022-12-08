@@ -4,7 +4,7 @@
 }
 
 .logo_title {
-  font-family: 'Anek Devanagari';
+  font-family: "Anek Devanagari";
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
@@ -30,9 +30,8 @@
   justify-content: space-between;
 }
 
-
 .diagram-card:hover {
-  outline: 2px solid #244A56;
+  outline: 2px solid #244a56;
 }
 
 .diagram-card {
@@ -47,20 +46,20 @@
   background: rgba(118, 186, 207, 0.15);
 }
 
-.diagram-card>h3 {
+.diagram-card > h3 {
   height: 60px;
   font-size: 48px;
   font-weight: 600;
-  font-family: 'Anek Devanagari';
+  font-family: "Anek Devanagari";
   color: rgba(36, 74, 86, 1);
   margin-bottom: 15px;
 }
 
-.diagram-card>h5 {
+.diagram-card > h5 {
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
-  font-family: 'Anek Devanagari';
+  font-family: "Anek Devanagari";
   color: rgba(36, 74, 86, 1);
 }
 
@@ -99,20 +98,21 @@
 .diagram-info-block {
   width: 464px;
   margin-top: 10px;
+  margin-left: 100px;
 }
 
 .diagram-info-title {
   font-size: 48px;
   font-weight: 500;
-  font-family: 'Anek Devanagari';
+  font-family: "Anek Devanagari";
   margin-bottom: 9px;
 }
 
-.diagram-info-block>ul {
+.diagram-info-block > ul {
   margin-right: 10px;
 }
 
-.diagram-info-block>ul>li {
+.diagram-info-block > ul > li {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -121,14 +121,14 @@
 
 .element {
   font-size: 24px;
-  font-family: 'Quicksand';
+  font-family: "Quicksand";
   font-weight: 600;
 }
 
 .price {
   width: 75px;
   text-align: left;
-  font-family: 'Quicksand';
+  font-family: "Quicksand";
   font-weight: 500;
   font-size: 24px;
   color: rgba(36, 74, 86, 1);
@@ -160,4 +160,18 @@
 
 .plus-btn {
   margin-left: 93%;
+}
+
+@media all and (max-width: 1050px) {
+  .diagram-info-block {
+    margin-left: 50px;
+  }
+  .diagram__child-block {
+    margin-left: 100px;
+    flex-direction: column;
+  }
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import "./InfoPage.css";
+import "../styles/InfoPage.css";
 
-import logo from "../img/logo.png";
+import logo from "../img/logo.svg";
 import vector1 from "../img/vector1.svg";
-import vectornew from "../img/vector1new.svg";
+import fon from "../img/fon.png";
+// import vectornew from "../img/vector1new.svg";
 import vector2 from "../img/vector2.svg";
 import vector3 from "../img/vector3.svg";
 import vector4 from "../img/Vector.svg";
@@ -25,7 +26,7 @@ const InfoPage = () => {
         </div>
         <div className="info-nav__right-block">
           <NavLink className="icone1" to="/history">
-            <img src={vector1} alt="" />
+            <img src={fon} alt="" />
           </NavLink>
           <img src={vector2} alt="" />
 
@@ -36,23 +37,26 @@ const InfoPage = () => {
         <NavLink to="/income">
           <div className="info_block">
             <h3>10,000</h3>
+
+            <span></span>
+
             <p className="info-block-desc">Income</p>
           </div>
         </NavLink>
         <NavLink to="/output">
           <div className="info_block">
-            <h3>5,000</h3>
+            <h3>5,000</h3> <span></span>
             <p className="info-block-desc">Expense</p>
           </div>
         </NavLink>
-        <Link>
-          <div className="info_block">
-            <h3>30,000</h3>
-            <p className="info-block-desc">Balance</p>
-          </div>
-        </Link>
+
+        <div className="info_block">
+          <h3>30,000</h3> <span></span>
+          <p className="info-block-desc">Balance</p>
+        </div>
         <NavLink to="/diagram">
-          <div className="info_block">
+          <div className="info_block gh">
+            <p className="info-block-desc"></p> <span></span>
             <h3>Graph</h3>
           </div>
         </NavLink>

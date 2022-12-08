@@ -1,8 +1,12 @@
 import React, { useContext, useEffect } from "react";
+import { useExpense } from "../contexts/ExpenseContextProvider";
 import { historyContext } from "../contexts/HistoryContextProvider";
+import { incomeContext } from "../contexts/IncomeContextProvider";
 import InfoPage from "./InfoPage";
 
 const HistoryPage = () => {
+  const { addExpense } = useExpense();
+  const { addIncome } = useContext(incomeContext);
   const {
     productsInHistory,
     getHistory,
@@ -12,7 +16,7 @@ const HistoryPage = () => {
   console.log(productsInHistory.products);
   useEffect(() => {
     getHistory();
-  }, []);
+  }, [addExpense, addIncome]);
 
   return (
     <>
@@ -47,25 +51,39 @@ const HistoryPage = () => {
           {productsInHistory.products ? (
             <>
               {productsInHistory.products.map(elem => (
-                <div className="card">
-                  <div className="card_blk">
-                    <div className="card_txt">
-                      <p>Dec 27, 2022</p>
-                    </div>
-                    <div className="card_txt">
-                      <p>{elem.item.category}</p>
-                    </div>
-                    <div className="card_txt">
-                      <p>{elem.item.note}</p>
-                    </div>
-                    <div className="card_txt">
-                      <p>{elem.item.amount}$</p>
+                <div>
+                  <h4
+                    style={{
+                      marginLeft: "20px",
+                      textAlign: "inherit",
+                      marginTop: "15px",
+                      fontFamily: "sans-serif",
+                      color: "rgb(36, 74, 86)",
+                    }}>
+                    {elem.item.title}
+                  </h4>
+                  <div className="card">
+                    <div className="card_blk">
+                      <div className="card_txt">
+                        <p>Dec 27, 2022</p>
+                      </div>
+                      <div className="card_txt">
+                        <p>{elem.item.category}</p>
+                      </div>
+                      <div className="card_txt">
+                        <p>{elem.item.note}</p>
+                      </div>
+                      <div className="card_txt">
+                        <p>{elem.item.amount}$</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               ))}
             </>
-          ) : null}
+          ) : (
+            <h2>Пусто</h2>
+          )}
         </div>
       </div>
       ;

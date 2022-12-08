@@ -88,10 +88,6 @@ const DiagramPage = () => {
                     <p className="element beauty">Beauty</p>
                     <p className="price"> 98$</p>
                   </li>
-                  <li>
-                    <p className="element food2">Food</p>
-                    <p className="price">12000$</p>
-                  </li>
                 </ul>
               </div>
             </div>

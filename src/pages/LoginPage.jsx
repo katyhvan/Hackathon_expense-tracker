@@ -3,6 +3,7 @@ import { useAuth } from "../contexts/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
 import logo from "../img/logo.png";
 import "../styles/Login.css";
+import Logo from "./Logo";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -30,10 +31,11 @@ const LoginPage = () => {
     <>
       <div className="login-page">
         <div className="block__left-login">
-          <div className="logo__block-login">
+          <Logo />
+          {/* <div className="logo__block-login">
             <img src={logo} alt="logo" width={79} height={53} />
             <h4 className="logo_text-login">Akatscoin</h4>
-          </div>
+          </div> */}
           <div className="form-block">
             <h2 className="login-title">Sign in</h2>
             <input
@@ -41,14 +43,14 @@ const LoginPage = () => {
               type="text"
               placeholder="E-mail"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
             />
             <input
               className="login-inp"
               type="password"
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={e => setPassword(e.target.value)}
             />
             <button className="login-btn" onClick={handleLogin}>
               Sign in
@@ -57,8 +59,7 @@ const LoginPage = () => {
               If you don't have an account
               <span
                 className="create-link"
-                onClick={() => navigate("/registration")}
-              >
+                onClick={() => navigate("/registration")}>
                 Sign up
               </span>
             </p>

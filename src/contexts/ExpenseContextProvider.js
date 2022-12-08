@@ -20,6 +20,7 @@ const ExpenseContextProvider = ({ children }) => {
           Authorization,
         },
       };
+      console.log(config);
       await axios.post(`${API}expense/`, formData, config);
     } catch (error) {
       return error;

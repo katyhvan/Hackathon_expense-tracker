@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useExpense } from "../contexts/ExpenseContextProvider";
 import { historyContext } from "../contexts/HistoryContextProvider";
 import photo from "../img/OutputAdd.svg";
 const OutputAdd = () => {
+  const navigate = useNavigate();
   const { addExpense } = useExpense();
-
+  const { addProductToHistory } = useContext(historyContext);
   const [category, setCategory] = useState("");
   const [service, setService] = useState("");
   const [amount, setAmount] = useState("");
@@ -15,8 +17,17 @@ const OutputAdd = () => {
       alert("Заполните нужные поля");
       return;
     }
-
+    let title = "Расходы";
+    const obj = {
+      title,
+      category,
+      amount,
+      note,
+      service,
+    };
+    addProductToHistory(obj);
     addExpense(category, Number(amount), note, service);
+    navigate("/output");
     setCategory("");
     setAmount("");
     setService("");
@@ -27,6 +38,7 @@ const OutputAdd = () => {
     <>
       <form onSubmit={e => handleAdd(e)}>
         <img
+          className="add_photo"
           style={{ position: "absolute", zIndex: 2, bottom: 0, right: 0 }}
           src={photo}
           alt=""
@@ -64,7 +76,7 @@ const OutputAdd = () => {
               onChange={e => setAmount(e.target.value)}
               className="inp three"
               placeholder="Amount"
-              type="text"
+              type="number"
             />
             <input
               value={note}
@@ -74,7 +86,10 @@ const OutputAdd = () => {
               type="text"
             />
           </div>
-          <button className="btn_save" type="submit">
+          <button
+            // onClick={() => navigate("/output")}
+            className="btn_save"
+            type="submit">
             Save
           </button>
         </div>

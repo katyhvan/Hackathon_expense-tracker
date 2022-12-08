@@ -86,3 +86,37 @@ select {
   background: #76bacf;
   border-radius: 32px;
 }
+@media all and (max-width: 750px) {
+  .add_photo {
+    display: none;
+  }
+}
+@media all and (max-width: 520px) {
+  .add h2 {
+    font-size: 35px;
+  }
+  .add_inp {
+    width: 80%;
+  }
+  select {
+    width: 100%;
+  }
+  .inp .inp1 {
+    height: 45px;
+  }
+  .inp1 {
+    width: 80%;
+    height: 45px;
+  }
+}
+@media all and (max-width: 380px) {
+  .add_inp {
+    width: 70%;
+  }
+  select {
+    width: 100%;
+  }
+  .inp {
+    height: 35px;
+  }
+}

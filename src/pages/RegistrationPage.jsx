@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Registration.css";
 // import Loader from "../components/Loader/Loader";
 import logo from "../img/logo.png";
+import Logo from "./Logo";
 
 const RegistrationPage = () => {
   const navigate = useNavigate();
@@ -52,10 +53,11 @@ const RegistrationPage = () => {
   return (
     <div className="register-page">
       <div className="block-left">
-        <div className="logo__block">
+        <Logo />
+        {/* <div className="logo__block">
           <img src={logo} alt="logo" />
           <h4 className="logo_text">Akatscoin</h4>
-        </div>
+        </div> */}
         <div className="title-block">
           <h1 className="block-left__title">Hello Friend</h1>
           <p className="block-left__desc">Сontrol your money with Akatscoin</p>
