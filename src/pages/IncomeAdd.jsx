@@ -3,12 +3,14 @@ import photo from '../img/incomeAdd.svg'
 import '../styles/incomeAdd.css'
 import { incomeContext, useIncome } from '../contexts/IncomeContextProvider'
 import { useNavigate } from 'react-router-dom'
+import { historyContext } from '../contexts/HistoryContextProvider'
 
 const IncomeAdd = () => {
   const { addIncome } = useIncome()
   const [amount, setAmount] = useState('')
   const [service, setServices] = useState('')
   const navigate = useNavigate()
+  const { addProductToHistory } = useContext(historyContext)
 
   function handleAdd(e) {
     e.preventDefault() // останавливает автообновление бразуреа при отправке данных через form
@@ -19,6 +21,12 @@ const IncomeAdd = () => {
 
     addIncome(Number(service), Number(amount), navigate)
     // addIncome(amount, service)
+    const title = 'Доходы'
+    let obj = {
+      amount,
+      title,
+    }
+    addProductToHistory(obj)
     setAmount('')
     setServices('')
   }

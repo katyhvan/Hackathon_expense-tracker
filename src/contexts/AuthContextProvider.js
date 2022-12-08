@@ -15,6 +15,7 @@ const AuthContextProvider = ({ children }) => {
     setLoading(true)
     try {
       const res = await axios.post(`${API}accounts/register/`, formData)
+      localStorage.setItem('token', JSON.stringify(res.data))
       navigate('/login')
       alert('Please check mail and activate your account!')
       console.log(res)

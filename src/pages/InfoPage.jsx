@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar'
 import '../styles/InfoPage.css'
 
 import logo from '../img/logo.png'
+import fon from '../img/fon.png'
 import vector1 from '../img/Vector (2).svg'
 import vector2 from '../img/Vector (1).svg'
 import vector3 from '../img/Vector (3).svg'
@@ -57,7 +58,9 @@ const InfoPage = () => {
                 : { backgroundColor: 'grey' }
             }
           />
-          <img src={vector1} alt="" />
+          <NavLink className="icone1" to="/history">
+            <img src={fon} alt="" />
+          </NavLink>
           <img
             className="notifications-img"
             src={vector2}
@@ -75,24 +78,25 @@ const InfoPage = () => {
       <div className="containerInfo">
         <NavLink to="/income">
           <div className="info_block">
-            <h3>10,000</h3>
+            <h3>10,000</h3> <span></span>
             <p className="info-block-desc">Income</p>
           </div>
         </NavLink>
         <NavLink to="/output">
           <div className="info_block">
-            <h3>5,000</h3>
+            <h3>5,000</h3> <span></span>
             <p className="info-block-desc">Expense</p>
           </div>
         </NavLink>
         <Link>
           <div className="info_block">
-            <h3>30,000</h3>
+            <h3>30,000</h3> <span></span>
             <p className="info-block-desc">Balance</p>
           </div>
         </Link>
         <NavLink to="/diagram">
           <div className="info_block">
+            <span></span>
             <h3>Graph</h3>
           </div>
         </NavLink>

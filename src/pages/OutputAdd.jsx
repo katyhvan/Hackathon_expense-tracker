@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useExpense } from '../contexts/ExpenseContextProvider'
+import { historyContext } from '../contexts/HistoryContextProvider'
 import photo from '../img/OutputAdd.svg'
 
 const OutputAdd = () => {
   const { addExpense } = useExpense()
-
+  const { addProductToHistory } = useContext(historyContext)
   const navigate = useNavigate()
 
   const [category, setCategory] = useState('')
@@ -21,6 +22,15 @@ const OutputAdd = () => {
     }
 
     addExpense(category, amount, note, service, navigate)
+    let title = 'Расходы'
+    const obj = {
+      title,
+      category,
+      amount,
+      note,
+      service,
+    }
+    addProductToHistory(obj)
     setCategory('')
     setAmount('')
     setService('')
