@@ -1,5 +1,5 @@
-import React from "react";
-import InfoPage from "./InfoPage";
+import React from 'react'
+import InfoPage from './InfoPage'
 
 const IncomePage = () => {
   return (
@@ -59,7 +59,7 @@ const IncomePage = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default IncomePage;
+export default IncomePage
