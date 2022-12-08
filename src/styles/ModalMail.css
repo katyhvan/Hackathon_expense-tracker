@@ -3,14 +3,15 @@
   flex-direction: column;
   align-items: center;
   width: 800px;
-  height: 500px;
-  background: linear-gradient(245.28deg, #76bacf -92.1%, #ffffff 110.38%);
+  height: 100vh;
   margin: 0 auto;
   margin-top: 20vh;
+  background: url('../img/mail.png') 100% 100% no-repeat,
+    linear-gradient(245.28deg, #76bacf -92.1%, #ffffff 110.38%);
 }
 
 .mail-title {
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-style: normal;
   font-weight: 600;
   font-size: 64px;
@@ -23,16 +24,17 @@
 .mail-inp {
   width: 450px;
   height: 60px;
-  background: rgba(36, 74, 86, 0.1);
+  background: url('../img/icons/mail-icon.svg') 10px 18px no-repeat,
+    rgba(36, 74, 86, 0.1);
   border: 1px solid #244a56;
   border-radius: 20px;
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
   color: rgba(36, 74, 86, 0.7);
-  padding-left: 32px;
+  padding-left: 45px;
 }
 
 .send-btn {
@@ -42,11 +44,14 @@
   border-radius: 52px;
   border: 0;
   margin-top: 32px;
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 41px;
   color: #ffffff;
   cursor: pointer;
+}
+
+@media (max-width: 670px) {
 }

@@ -15,10 +15,11 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2.2vw;
+  cursor: pointer;
 }
 
 .logo_text-login {
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-weight: 500;
   font-size: 32px;
   margin-top: 9px;
@@ -27,7 +28,7 @@
 }
 
 .login-title {
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-style: normal;
   font-weight: 600;
   font-size: 64px;
@@ -47,22 +48,27 @@
 
 .login-inp {
   padding: 15px;
-  background: rgba(36, 74, 86, 0.1);
   border: 1px solid #244a56;
   border-radius: 20px;
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   font-weight: 600;
   font-size: 24px;
   color: rgba(36, 74, 86, 0.7);
+  padding-left: 45px;
 }
 
-/* 
-.login-inp:nth-child(3) {
-  margin-bottom: 35px;
-} */
+.login-mail {
+  background: url('../img/icons/mail-icon.svg') 10px 17px no-repeat,
+    rgba(36, 74, 86, 0.1);
+}
+
+.login-pass {
+  background: url('../img/icons/pass-icon.svg') 10px 15px no-repeat,
+    rgba(36, 74, 86, 0.1);
+}
 
 .forgot-pass {
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -82,12 +88,12 @@
   border: none;
   background: #244a56;
   border-radius: 57px;
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-style: normal;
   font-weight: 500;
   font-size: 40px;
   color: #ffffff;
-  padding: 18px 15px 0 0;
+  padding: 18px 15px;
   margin: 0 auto;
   outline: #244a56;
   cursor: pointer;
@@ -95,7 +101,7 @@
 
 .create-link {
   font-weight: 700;
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-weight: 600;
   font-size: 20px;
   line-height: 27px;
@@ -105,15 +111,17 @@
 
 .block__right-login {
   width: 49vw;
-  background: linear-gradient(21.36deg,
+  background: linear-gradient(
+      21.36deg,
       rgba(255, 255, 255, 0.54) 17.62%,
-      rgba(93, 154, 173, 0.54) 100%),
+      rgba(93, 154, 173, 0.54) 100%
+    ),
     url(../img/login-page/decor-img.png) 100% 100% no-repeat;
-  padding: 200px 0 0;
+  padding: 23vh 0 0;
 }
 
 .welcome-title {
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-weight: 600;
   font-size: 64px;
   line-height: 109px;
@@ -123,7 +131,7 @@
 }
 
 .welcome-desc {
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-weight: 500;
   font-size: 36px;
   margin-left: 137px;
@@ -131,7 +139,7 @@
 }
 
 .account-text {
-  font-family: "Anek Devanagari";
+  font-family: 'Anek Devanagari';
   font-weight: 600;
   font-size: 20px;
   line-height: 27px;
@@ -141,4 +149,81 @@
 .account-text {
   margin: auto;
   font-weight: 400;
+}
+
+@media (max-width: 1350px) {
+  .login-btn {
+    max-width: 300px;
+    font-size: 30px;
+  }
+  .account-text,
+  .create-link {
+    font-size: 15px;
+  }
+  .welcome-title,
+  .welcome-desc {
+    margin-left: 90px;
+  }
+  .block__right-login {
+    padding-top: 15vh;
+  }
+}
+
+@media (max-width: 1050px) {
+  .login-btn {
+    max-width: 220px;
+    font-size: 35px;
+  }
+  .login-title {
+    margin-left: 5vw;
+    font-size: 50px;
+  }
+  .welcome-title {
+    font-size: 50px;
+  }
+  .welcome-desc {
+    font-size: 30px;
+  }
+  .welcome-title,
+  .welcome-desc {
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 750px) {
+  .login-page {
+    display: block;
+  }
+  .block__right-login {
+    display: none;
+  }
+  .block__left-login {
+    width: 100%;
+  }
+  .form-block {
+    width: auto;
+    margin: 0;
+  }
+  .login-title {
+    text-align: center;
+  }
+  .logo,
+  .logo_text-login {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .login-btn {
+    font-size: 30px;
+    max-width: 180px;
+    height: 65px;
+    padding: 10px;
+  }
+  .login-title {
+    font-size: 45px;
+  }
+  .login-inp {
+    font-size: 20px;
+  }
 }

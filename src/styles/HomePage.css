@@ -1,39 +1,33 @@
+.body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .containerHome {
-  background: url(../img/two.png) no-repeat;
-  background-size: 50% 100%;
-  background-position-x: 8%;
-  background-position-y: 100%;
-  height: 57vw;
-}
-
-.logo-block-home {
-  width: 150px;
-  margin: 40px 0 18vw 65px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.block_left img {
-  position: absolute;
-  height: 95%;
+.home_img {
+  height: 100vh;
+}
+.home_img_mobile {
+  display: none;
 }
 
 .block_right {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-left: 60vw;
-  margin-top: 20vh;
+  /* margin-left: 100px; */
+  margin-top: 100px;
 }
-
 .block_right h2 {
   font-family: sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 60px;
   line-height: 105px;
-  width: 582px;
   color: #244a56;
+  width: 550px;
 }
 
 .block_right h4 {
@@ -55,27 +49,72 @@
   background: #ba131a;
   border-radius: 48px;
   border: none;
-  margin-left: 6vw;
+  margin-left: 3vw;
   cursor: pointer;
 }
-@media all and (max-width: 1250px) {
-  .home_block {
-    flex-direction: column;
-  }
-
+@media all and (max-width: 1040px) {
   .block_right {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
   }
-  .mobile_home {
+  .block_right h4 {
+    margin-top: 10px;
+    font-size: 23px;
+  }
+  .block_right h2 {
+    width: 400px;
+    letter-spacing: 1px;
+    font-size: 35px;
+    line-height: 50px;
+  }
+  .block_right button {
+    width: 300px;
+    height: 90px;
+  }
+  .home_img {
+    display: none;
+  }
+  .home_img_mobile {
+    position: fixed;
+    bottom: 0;
+    right: 0;
     display: block;
-  }
-  .home_block {
-    justify-content: center;
+    height: 40%;
   }
 }
-
+@media all and (max-width: 650px) {
+  .block_right button {
+    width: 270px;
+    height: 70px;
+  }
+}
 @media all and (max-width: 400px) {
-  .home_block {
+  .logo {
+    display: none;
+  }
+  .containerHome {
+    margin-top: 50px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: start;
+  }
+  .block_right h4 {
+    font-size: 15px;
+  }
+  .block_right h2 {
+    width: 233px;
+    letter-spacing: 1px;
+    font-size: 23px;
+    line-height: 38px;
+  }
+  .block_right button {
+    position: absolute;
+    top: 40%;
+    left: 18vw;
+
+    height: 60px;
+    width: 200px;
   }
 }

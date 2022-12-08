@@ -10,8 +10,6 @@ const OutputPage = () => {
 
 	const [open, setOpen] = useState(false)
 
-	let foods = []
-
 	const {
 		getExpense,
 		expenses,

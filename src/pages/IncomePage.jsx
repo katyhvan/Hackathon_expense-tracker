@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import EditIncome from '../components/income/EditIncome'
-import { useIncome } from '../contexts/IncomeContextProvider'
+import React, { useState, useEffect } from 'react'
 import InfoPage from './InfoPage'
-import '../styles/IncomePage.css'
+import { useIncome } from '../contexts/IncomeContextProvider'
 import { useExpense } from '../contexts/ExpenseContextProvider'
+import EditIncome from '../components/income/EditIncome'
+
+import '../styles/IncomePage.css'
 
 const IncomePage = () => {
 	let cntmenu = document.querySelector('.contextmenu')

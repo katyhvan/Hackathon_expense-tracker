@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContextProvider'
-import './InfoPage.css'
+import Avatar from '@mui/material/Avatar'
+import '../styles/InfoPage.css'
 
 import logo from '../img/Rectangle 1.svg'
 import vector1 from '../img/Vector (2).svg'
@@ -9,20 +10,26 @@ import vector2 from '../img/Vector (1).svg'
 import vector3 from '../img/Vector (3).svg'
 import vector4 from '../img/Vector.svg'
 import { useIncome } from '../contexts/IncomeContextProvider'
-import { useExpense } from '../contexts/ExpenseContextProvider'
 
 const InfoPage = () => {
 	const navigate = useNavigate()
-	const { checkAuth, handleLogout } = useAuth()
-	const { incomes, totalIncome, getTotalIncome } = useIncome()
+	const { checkAuth, handleLogout, notifications, currentUser } = useAuth()
+	const { incomes, totalIncome, getTotalIncome, fon } = useIncome()
 	const [modal, setModal] = useState('none')
 
 	useEffect(() => {
 		getTotalIncome()
 	}, [])
 
-	function logout() {
+	function handleNotifications() {
 		const token = JSON.parse(localStorage.getItem('token'))
+		const formData = new FormData()
+		formData.append('refresh', token.refresh)
+		notifications(formData)
+	}
+
+	function logout() {
+		let token = JSON.parse(localStorage.getItem('token'))
 		handleLogout(token.refresh, navigate)
 	}
 
@@ -39,8 +46,24 @@ const InfoPage = () => {
 					<h4 className='logo_text-info'>Akatscoin</h4>
 				</div>
 				<div className='info-nav__right-block'>
-					<img src={vector1} alt='' />
-					<img src={vector2} alt='' />
+					<Avatar
+						src={currentUser}
+						alt={currentUser}
+						style={
+							currentUser
+								? { backgroundColor: '#BA131A' }
+								: { backgroundColor: 'grey' }
+						}
+					/>
+					<NavLink className='icone1' to='/history'>
+						<img src={fon} alt='' />
+					</NavLink>
+					<img
+						className='notifications-img'
+						src={vector2}
+						alt='notifications-icon'
+						onClick={() => handleNotifications()}
+					/>
 					<img
 						className='logout-img'
 						src={vector3}
@@ -52,23 +75,25 @@ const InfoPage = () => {
 			<div className='containerInfo'>
 				<NavLink to='/income'>
 					<div className='info_block'>
-						{/* <h3>{totalIncome[0].income}</h3> */}
+						<h3>10,000</h3> <span></span>
 						<p className='info-block-desc'>Income</p>
 					</div>
 				</NavLink>
 				<NavLink to='/output'>
 					<div className='info_block'>
-						{/* <h3>{totalIncome[0].expense}</h3> */}
-						{/* {totalIncome[0].expense} */}
+						<h3>5,000</h3> <span></span>
 						<p className='info-block-desc'>Expense</p>
 					</div>
 				</NavLink>
-				<div className='info_block balance-block'>
-					{/* <h3>{totalIncome[0].balance}</h3> */}
-					<p className='info-block-desc'>Balance</p>
-				</div>
+				<Link>
+					<div className='info_block'>
+						<h3>30,000</h3> <span></span>
+						<p className='info-block-desc'>Balance</p>
+					</div>
+				</Link>
 				<NavLink to='/diagram'>
 					<div className='info_block'>
+						<span></span>
 						<h3>Graph</h3>
 					</div>
 				</NavLink>

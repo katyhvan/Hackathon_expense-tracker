@@ -11,7 +11,7 @@ import {
 
 import '../styles/DiagramPage.css'
 import InfoPage from './InfoPage'
-import './DiagramPage.css'
+import '../styles/DiagramPage.css'
 import { useExpense } from '../contexts/ExpenseContextProvider'
 
 ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend)

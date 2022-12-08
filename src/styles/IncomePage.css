@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(0, 0, 0, .6);
+  background: rgb(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
 }
 
@@ -39,7 +39,8 @@
   border: 2px solid #077292;
   border-radius: 20px;
 
-  background: rgba(1, 35, 45, 0.787) url(http://localhost:3000/static/media/amount.0835183….svg)no-repeat 20px;
+  background: rgba(1, 35, 45, 0.787)
+    url(http://localhost:3000/static/media/amount.0835183….svg) no-repeat 20px;
   background-size: auto 50%;
 }
 

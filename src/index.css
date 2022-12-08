@@ -15,7 +15,7 @@ input:focus {
   outline: none;
 }
 
-.active {
+/* .active {
   border-radius: 30px;
 }
 
@@ -43,4 +43,10 @@ input:focus {
 
 .active img {
   background: url("./img/vector1new.svg") no-repeat;
-}
+} */
+
+
+/* .active {
+  background: rgb(68, 68, 68);
+  border-radius: 30px;
+} */

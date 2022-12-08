@@ -5,7 +5,8 @@
   gap: 32px;
   width: 800px;
   height: 500px;
-  background: linear-gradient(245.28deg, #76bacf -92.1%, #ffffff 110.38%);
+  background: url("../img/restore-img.png") 100% 0 no-repeat,
+    linear-gradient(245.28deg, #76bacf -92.1%, #ffffff 110.38%);
   margin: 0 auto;
   margin-top: 20vh;
 }
@@ -23,7 +24,6 @@
 .restore-inp {
   width: 450px;
   height: 60px;
-  background: rgba(36, 74, 86, 0.1);
   border: 1px solid #244a56;
   border-radius: 20px;
   font-family: "Quicksand";
@@ -31,8 +31,18 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
-  padding-left: 32px;
+  padding-left: 45px;
   color: rgba(36, 74, 86, 0.7);
+}
+
+.code-inp {
+  background: url("../img/icons/code-icon.svg") 10px 15px no-repeat,
+    rgba(36, 74, 86, 0.1);
+}
+
+.new-pass-inp {
+  background: url("../img/icons/pass-icon.svg") 10px 15px no-repeat,
+    rgba(36, 74, 86, 0.1);
 }
 
 .restore-btn {

@@ -11,6 +11,7 @@ import InfoPage from './pages/InfoPage'
 import ModalMailPage from './pages/ModalMailPage'
 import OutputAdd from './pages/OutputAdd'
 import RestorePage from './pages/RestorePage'
+import HistoryPage from './pages/HistoryPage'
 
 const PAGES_ROUTES = [
 	{

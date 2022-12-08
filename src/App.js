@@ -8,19 +8,19 @@ import HistoryContextProvider from './contexts/HistoryContextProvider'
 import ExpenseContextProvider from './contexts/ExpenseContextProvider'
 
 function App() {
-	return (
-		<>
-			<ExpenseContextProvider>
-				<HistoryContextProvider>
-					<IncomeContextProvider>
-						<AuthContextProvider>
-							<MainRouting />
-						</AuthContextProvider>
-					</IncomeContextProvider>
-				</HistoryContextProvider>
-			</ExpenseContextProvider>
-		</>
-	)
+  return (
+    <>
+      <ExpenseContextProvider>
+        <HistoryContextProvider>
+          <IncomeContextProvider>
+            <AuthContextProvider>
+              <MainRouting />
+            </AuthContextProvider>
+          </IncomeContextProvider>
+        </HistoryContextProvider>
+      </ExpenseContextProvider>
+    </>
+  )
 }
 
 export default App
