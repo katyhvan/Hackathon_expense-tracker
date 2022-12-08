@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { useAuth } from "../contexts/AuthContextProvider";
-import { useNavigate } from "react-router-dom";
-import Logo from "../pages/Logo";
-import "../styles/ModalMail.css";
+import React, { useState } from 'react'
+import { useAuth } from '../contexts/AuthContextProvider'
+import { useNavigate } from 'react-router-dom'
+import Logo from '../pages/Logo'
+import '../styles/ModalMail.css'
 
 function ModalMailPage() {
-  const navigate = useNavigate();
-  const { getMail } = useAuth();
-  const [email, setEmail] = useState("");
+  const navigate = useNavigate()
+  const { getMail } = useAuth()
+  const [email, setEmail] = useState('')
 
   function handleSend() {
     if (!email.trim()) {
-      alert("Input is empty!");
-      return;
+      alert('Input is empty!')
+      return
     }
 
-    let formData = new FormData();
-    formData.append("email", email);
-    getMail(formData, navigate);
+    let formData = new FormData()
+    formData.append('email', email)
+    getMail(formData, navigate)
   }
 
   return (
@@ -37,7 +37,7 @@ function ModalMailPage() {
         </button>
       </div>
     </>
-  );
+  )
 }
 
-export default ModalMailPage;
+export default ModalMailPage

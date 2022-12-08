@@ -1,49 +1,62 @@
 import React, { useContext, useState } from 'react'
-import photo from '../img/inconeAdd.svg'
+import photo from '../img/incomeAdd.svg'
 import '../styles/incomeAdd.css'
-import { incomeContext } from '../contexts/IncomeContextProvider'
+import { incomeContext, useIncome } from '../contexts/IncomeContextProvider'
+import { useNavigate } from 'react-router-dom'
+
 const IncomeAdd = () => {
-	const { addIncome } = useContext(incomeContext)
-	const [amount, setAmount] = useState(0)
+  const { addIncome } = useIncome()
+  const [amount, setAmount] = useState('')
+  const [service, setServices] = useState('')
+  const navigate = useNavigate()
 
-	function handleAdd(e) {
-		e.preventDefault() // останавливает автообновление бразуреа при отправке данных через form
-		if (!amount.trim()) {
-			alert('Заполните все поля!')
-			return
-		}
-		// let obj = { amount: +amount, note };
+  function handleAdd(e) {
+    e.preventDefault() // останавливает автообновление бразуреа при отправке данных через form
+    // if (!amount.trim() || !service.trim()) {
+    // 	alert('Заполните все поля!')
+    // 	return
+    // }
 
-		addIncome(amount)
-		setAmount(0)
-	}
+    addIncome(Number(service), Number(amount), navigate)
+    // addIncome(amount, service)
+    setAmount('')
+    setServices('')
+  }
 
-	return (
-		<>
-			<form onSubmit={e => handleAdd(e)}>
-				<img
-					style={{ position: 'absolute', zIndex: 2, bottom: 0, left: 0 }}
-					src={photo}
-					alt=''
-				/>
-				<div className='add'>
-					<h2>Add Income </h2>
-					<div className='add_inp'>
-						<input
-							className='inp1 three'
-							placeholder='Amount'
-							type='number'
-							value={amount}
-							onChange={e => setAmount(e.target.value)}
-						/>
-					</div>
-					<button className='btn_save' type='submit'>
-						Save
-					</button>
-				</div>
-			</form>
-		</>
-	)
+  return (
+    <>
+      <form onSubmit={(e) => handleAdd(e)}>
+        {/* <img
+          style={{ position: 'absolute', zIndex: 2, bottom: 0, left: 0 }}
+          src={photo}
+          alt=""
+        /> */}
+        <div className="add">
+          <h2>Add Income </h2>
+          <div className="add_inp">
+            <input
+              className="inp1 three"
+              placeholder="Amount"
+              type="text"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
+
+            <input
+              className="inp1 three"
+              placeholder="Service"
+              type="text"
+              value={service}
+              onChange={(e) => setServices(e.target.value)}
+            />
+          </div>
+          <button className="btn_save" type="submit">
+            Save
+          </button>
+        </div>
+      </form>
+    </>
+  )
 }
 
 export default IncomeAdd

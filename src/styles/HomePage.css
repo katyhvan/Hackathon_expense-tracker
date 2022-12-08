@@ -1,3 +1,8 @@
+.home-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .containerHome {
   background: url(../img/two.png) no-repeat;
   background-size: 50% 100%;
@@ -19,9 +24,9 @@
 }
 
 .block_right {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
   margin-left: 60vw;
   margin-top: 20vh;
 }
@@ -32,7 +37,7 @@
   font-weight: 700;
   font-size: 60px;
   line-height: 105px;
-  width: 582px;
+  max-width: 582px;
   color: #244a56;
 }
 
@@ -58,11 +63,34 @@
   margin-left: 6vw;
   cursor: pointer;
 }
-@media all and (max-width: 1250px) {
+
+/* @media all and (max-width: 1660px) {
+  .block_right {
+    margin-left: 55vw;
+  }
+}
+
+@media all and (max-width: 1550px) {
+  .containerHome {
+    height: 45vw;
+  }
+  .block_right h2 {
+    max-width: 520px;
+    line-height: 70px;
+    line-height: 70px;
+  }
+  .block_right h4 {
+    margin-bottom: 3.5vw;
+  }
+  .block_right button {
+    margin-left: 0;
+  }
+}
+
+@media all and (max-width: 1290px) {
   .home_block {
     flex-direction: column;
   }
-
   .block_right {
     display: flex;
     justify-content: center;
@@ -73,9 +101,16 @@
   .home_block {
     justify-content: center;
   }
-}
+  .containerHome {
+    height: 100vh;
+  }
+} */
 
-@media all and (max-width: 400px) {
-  .home_block {
+@media all and (max-width: 1100px) {
+  .home-page {
+    display: block;
+  }
+  .containerHome {
+    background-size: 0%;
   }
 }
