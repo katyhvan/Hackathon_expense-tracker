@@ -13,7 +13,8 @@ const LoginPage = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
-	function handleLogin() {
+	function handleLogin(e) {
+		e.preventDefault()
 		if (!email.trim() || !password.trim()) {
 			alert('Some inputs are empty!')
 			return

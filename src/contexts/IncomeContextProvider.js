@@ -9,7 +9,7 @@ const API = 'http://35.203.116.125/api/v1/'
 const INIT_STATE = {
 	incomes: [],
 	oneIncome: null,
-	totalIncome: [],
+	balance: [],
 }
 
 function reducer(state = INIT_STATE, action) {
@@ -18,8 +18,8 @@ function reducer(state = INIT_STATE, action) {
 			return { ...state, incomes: action.payload }
 		case 'GET_ONE_INCOME':
 			return { ...state, oneIncome: action.payload }
-		case 'GET_TOTAL_INCOME':
-			return { ...state, totalIncome: action.payload }
+		case 'GET_BALANCE':
+			return { ...state, balance: action.payload }
 		default:
 			return state
 	}
@@ -30,10 +30,15 @@ const IncomeContextProvider = ({ children }) => {
 
 	async function getIncome() {
 		try {
-			const { data } = await axios(`${API}income/`)
+			const service = JSON.parse(localStorage.getItem('service'))
+			let { data } = await axios(`${API}income/`)
 
 			data.sort((a, b) => {
 				return a.id - b.id
+			})
+
+			data = data.filter(item => {
+				return item.service == service
 			})
 
 			dispatch({
@@ -45,9 +50,10 @@ const IncomeContextProvider = ({ children }) => {
 		}
 	}
 
-	async function getTotalIncome() {
+	async function getBalance() {
 		try {
 			const tokens = JSON.parse(localStorage.getItem('token'))
+			const email = JSON.parse(localStorage.getItem('email'))
 
 			const Authorization = `JWT ${tokens.access}`
 
@@ -59,16 +65,21 @@ const IncomeContextProvider = ({ children }) => {
 
 			let { data } = await axios(`${API}service/`, config)
 
-			dispatch({
-				type: 'GET_TOTAL_INCOME',
-				payload: data,
+			data = data.filter(item => {
+				return item.owner == email
+			})
+
+			data.forEach(item => {
+				localStorage.setItem('service', JSON.stringify(item.id))
+				dispatch({
+					type: 'GET_BALANCE',
+					payload: item,
+				})
 			})
 		} catch (err) {
 			console.log(err)
 		}
 	}
-
-	// getTotalIncome()
 
 	async function addIncome(service, amount, navigate) {
 		try {
@@ -132,9 +143,9 @@ const IncomeContextProvider = ({ children }) => {
 	}
 
 	async function saveIncomeChanges(newIncome) {
-		const tokens = JSON.parse(localStorage.getItem('token'))
+		const token = JSON.parse(localStorage.getItem('token'))
 
-		const Authorization = `JWT ${tokens.access}`
+		const Authorization = `JWT ${token.access}`
 
 		const config = {
 			headers: {
@@ -149,16 +160,35 @@ const IncomeContextProvider = ({ children }) => {
 		getIncome()
 	}
 
+	async function createService(date) {
+		try {
+			const token = JSON.parse(localStorage.getItem('token'))
+
+			const Authorization = `JWT ${token.access}`
+
+			const config = {
+				headers: {
+					Authorization,
+				},
+			}
+
+			await axios.post(`${API}service/`, date, config)
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
 	let values = {
 		addIncome,
 		getIncome,
 		deleteIncome,
 		getOneIncome,
 		saveIncomeChanges,
-		getTotalIncome,
+		getBalance,
+		createService,
 
 		incomes: state.incomes,
-		totalIncome: state.totalIncome,
+		balance: state.balance,
 		oneIncome: state.oneIncome,
 	}
 

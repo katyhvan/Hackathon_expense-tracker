@@ -69,6 +69,16 @@ const PAGES_ROUTES = [
 		element: <ModalMailPage />,
 		id: 11,
 	},
+	{
+		link: '/modalMail',
+		element: <ModalMailPage />,
+		id: 12,
+	},
+	{
+		link: '/history',
+		element: <HistoryPage />,
+		id: 13,
+	},
 ]
 
 const MainRouting = () => {

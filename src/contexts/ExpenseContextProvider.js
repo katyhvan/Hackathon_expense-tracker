@@ -41,6 +41,7 @@ const ExpenseContextProvider = ({ children }) => {
 
 	async function getExpense() {
 		try {
+			const service = JSON.parse(localStorage.getItem('service'))
 			const token = JSON.parse(localStorage.getItem('token'))
 
 			const Authorization = `JWT ${token.access}`
@@ -52,6 +53,10 @@ const ExpenseContextProvider = ({ children }) => {
 			}
 
 			let { data } = await axios(`${API}expense/`, config)
+
+			data = data.filter(item => {
+				return item.service == service
+			})
 
 			data.sort((a, b) => {
 				return a.id - b.id
@@ -118,7 +123,7 @@ const ExpenseContextProvider = ({ children }) => {
 				beautys.push(item.value)
 				let totalBeauty = beautys.reduce((pV, next) => (pV += next), 0)
 				setBeauty(totalBeauty)
-			} else if (item.category == 'healt') {
+			} else if (item.category == 'health') {
 				healts.push(item.value)
 				let totalHealt = healts.reduce((pV, next) => (pV += next), 0)
 				setHealt(totalHealt)

@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar'
 import '../styles/InfoPage.css'
 
 import logo from '../img/Rectangle 1.svg'
+import fon from '../img/fon.png'
 import vector1 from '../img/Vector (2).svg'
 import vector2 from '../img/Vector (1).svg'
 import vector3 from '../img/Vector (3).svg'
@@ -13,12 +14,20 @@ import { useIncome } from '../contexts/IncomeContextProvider'
 
 const InfoPage = () => {
 	const navigate = useNavigate()
-	const { checkAuth, handleLogout, notifications, currentUser } = useAuth()
-	const { incomes, totalIncome, getTotalIncome, fon } = useIncome()
+	const { checkAuth, handleLogout, notifications } = useAuth()
+	const { incomes, balance, getBalance, createService } = useIncome()
+
+	const [currentUser, setCurrentUser] = useState(null)
+	const [service, setService] = useState(null)
+
 	const [modal, setModal] = useState('none')
 
 	useEffect(() => {
-		getTotalIncome()
+		getBalance()
+	}, [])
+
+	useEffect(() => {
+		setCurrentUser(JSON.parse(localStorage.getItem('email')))
 	}, [])
 
 	function handleNotifications() {
@@ -31,6 +40,16 @@ const InfoPage = () => {
 	function logout() {
 		let token = JSON.parse(localStorage.getItem('token'))
 		handleLogout(token.refresh, navigate)
+	}
+
+	useEffect(() => {
+		const services = JSON.parse(localStorage.getItem('service'))
+		setService(services)
+	}, [])
+
+	function handleCreate() {
+		let date = +prompt('Enter the current date (DD/MM/YYYY)')
+		createService(date)
 	}
 
 	return (
@@ -46,6 +65,13 @@ const InfoPage = () => {
 					<h4 className='logo_text-info'>Akatscoin</h4>
 				</div>
 				<div className='info-nav__right-block'>
+					{service ? (
+						<h3> Your service: {service}</h3>
+					) : (
+						<button className='createService-btn' onClick={handleCreate}>
+							Create Service
+						</button>
+					)}
 					<Avatar
 						src={currentUser}
 						alt={currentUser}
@@ -75,19 +101,19 @@ const InfoPage = () => {
 			<div className='containerInfo'>
 				<NavLink to='/income'>
 					<div className='info_block'>
-						<h3>10,000</h3> <span></span>
+						<h3>{balance.income}</h3> <span></span>
 						<p className='info-block-desc'>Income</p>
 					</div>
 				</NavLink>
 				<NavLink to='/output'>
 					<div className='info_block'>
-						<h3>5,000</h3> <span></span>
+						<h3>{balance.expense}</h3> <span></span>
 						<p className='info-block-desc'>Expense</p>
 					</div>
 				</NavLink>
 				<Link>
 					<div className='info_block'>
-						<h3>30,000</h3> <span></span>
+						<h3>{balance.balance}</h3> <span></span>
 						<p className='info-block-desc'>Balance</p>
 					</div>
 				</Link>

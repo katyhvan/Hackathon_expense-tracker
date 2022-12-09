@@ -98,7 +98,7 @@ const DiagramPage = () => {
 										<p className='price'>{education}$</p>
 									</li>
 									<li>
-										<p className='element healt'>Healt</p>
+										<p className='element healt'>Health</p>
 										<p className='price'>{healt}$</p>
 									</li>
 									<li>

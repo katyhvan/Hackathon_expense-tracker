@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
 import axios from 'axios'
-import { json } from 'react-router-dom'
 
 const authContext = createContext()
 export const useAuth = () => useContext(authContext)
@@ -8,7 +7,7 @@ export const useAuth = () => useContext(authContext)
 const API = 'http://35.203.116.125/api/v1/'
 
 const AuthContextProvider = ({ children }) => {
-	const [currentUser, setCurrentUser] = useState(null)
+	const [currentUser, setCurrentUser] = useState(false)
 	const [error, setError] = useState(false)
 	const [loading, setLoading] = useState(false)
 
@@ -16,6 +15,7 @@ const AuthContextProvider = ({ children }) => {
 		setLoading(true)
 		try {
 			const res = await axios.post(`${API}accounts/register/`, formData)
+			localStorage.setItem('token', JSON.stringify(res.data))
 			navigate('/login')
 			alert('Please check mail and activate your account!')
 			console.log(res)
@@ -31,20 +31,16 @@ const AuthContextProvider = ({ children }) => {
 		setLoading()
 		try {
 			const res = await axios.post(`${API}accounts/login/`, formData)
-
 			localStorage.setItem('token', JSON.stringify(res.data))
-
-			setCurrentUser(email)
-
 			localStorage.setItem('email', JSON.stringify(email))
-
+			// setCurrentUser(email)
 			navigate('/info')
 		} catch (err) {
-			// setError([err.response.data.detail])
+			setError([err.response.data.detail])
 			console.log(err)
 			alert('Please check, activate or create an account')
 		} finally {
-			// setLoading()
+			setLoading()
 		}
 	}
 
@@ -99,12 +95,31 @@ const AuthContextProvider = ({ children }) => {
 				Authorization,
 			},
 		}
-
 		await axios.post(`${API}accounts/logout/`, formData, config)
 		localStorage.removeItem('token')
 		localStorage.removeItem('email')
 		setCurrentUser(false)
 		navigate('/')
+	}
+
+	async function notifications(formData) {
+		const token = JSON.parse(localStorage.getItem('token'))
+		const Authorization = `JWT ${token.access}`
+		const config = {
+			headers: {
+				Authorization,
+			},
+		}
+		try {
+			let res = await axios.post(
+				`${API}accounts/follow-notifications/`,
+				formData,
+				config
+			)
+			alert('Successfully subscribed to notifications!')
+		} catch (error) {
+			setError(error)
+		}
 	}
 
 	const values = {
@@ -121,6 +136,7 @@ const AuthContextProvider = ({ children }) => {
 		passReset,
 		checkAuth,
 		handleLogout,
+		notifications,
 	}
 
 	return (

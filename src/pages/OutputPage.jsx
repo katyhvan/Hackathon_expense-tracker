@@ -10,27 +10,11 @@ const OutputPage = () => {
 
 	const [open, setOpen] = useState(false)
 
-	const {
-		getExpense,
-		expenses,
-		deleteExpense,
-		getOneExpense,
-		getTotalExpense,
-	} = useExpense()
-
-	const { incomes, getTotalIncome } = useIncome()
+	const { getExpense, expenses, deleteExpense, getOneExpense } = useExpense()
 
 	useEffect(() => {
 		getExpense()
 	}, [])
-
-	useEffect(() => {
-		getTotalExpense()
-	}, [expenses])
-
-	useEffect(() => {
-		getTotalIncome()
-	}, [incomes])
 
 	function contextmenu(e) {
 		cntmenu.setAttribute(
@@ -51,6 +35,8 @@ const OutputPage = () => {
 		deleteExpense(id)
 		cntmenu.style.display = 'none'
 	}
+
+	// console.log(expenses)
 
 	return (
 		<>

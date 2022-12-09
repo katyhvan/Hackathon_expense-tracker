@@ -11,22 +11,13 @@ const IncomePage = () => {
 
 	const [open, setOpen] = useState(false)
 
-	const { getIncome, incomes, deleteIncome, getOneIncome, getTotalIncome } =
-		useIncome()
-
-	const { expenses, getTotalExpense } = useExpense()
+	const { getIncome, incomes, deleteIncome, getOneIncome } = useIncome()
 
 	useEffect(() => {
 		getIncome()
 	}, [])
 
-	useEffect(() => {
-		getTotalIncome()
-	}, [incomes])
-
-	useEffect(() => {
-		getTotalExpense()
-	}, [expenses])
+	// console.log(incomes)
 
 	function contextmenu(e) {
 		cntmenu.setAttribute(
