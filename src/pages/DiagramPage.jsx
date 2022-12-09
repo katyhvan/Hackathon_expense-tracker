@@ -12,6 +12,7 @@ import {
 import '../styles/DiagramPage.css'
 import InfoPage from './InfoPage'
 import '../styles/DiagramPage.css'
+import { useExpense } from '../contexts/ExpenseContextProvider'
 
 ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Legend)
 
@@ -22,24 +23,44 @@ const DiagramPage = () => {
     datasets: [],
   })
 
+  const {
+    expenses,
+    getExpense,
+    showDiagram,
+    food,
+    education,
+    beauty,
+    healt,
+    transportation,
+  } = useExpense()
+
+  useEffect(() => {
+    getExpense()
+  }, [])
+
+  useEffect(() => {
+    showDiagram()
+  }, [expenses])
+
   const [chartOptions, setChartOptions] = useState({})
 
   useEffect(() => {
     setChartData({
       datasets: [
         {
-          data: [10, 10, 10, 10, 10, 10],
+          data: [food, education, healt, transportation, beauty],
           backgroundColor: [
             '#BA131A',
             '#DE565C',
             '#FF7278',
             '#FFA4A7',
             '#CE8487',
-            'rgba(141, 89, 91, 1)',
+            '#8d595b',
           ],
         },
       ],
     })
+
     setChartOptions({
       responsive: true,
       plugins: {
@@ -70,27 +91,23 @@ const DiagramPage = () => {
                 <ul>
                   <li>
                     <p className="element food">Food</p>
-                    <p className="price">12$</p>
+                    <p className="price">{food}$</p>
                   </li>
                   <li>
                     <p className="element education">Education</p>
-                    <p className="price">15.67$</p>
+                    <p className="price">{education}$</p>
                   </li>
                   <li>
-                    <p className="element healt">Healt</p>
-                    <p className="price">43.98$</p>
+                    <p className="element healt">Health</p>
+                    <p className="price">{healt}$</p>
                   </li>
                   <li>
-                    <p className="element tranportation">Tranportation</p>
-                    <p className="price">3$</p>
+                    <p className="element tranportation">Transportation</p>
+                    <p className="price">{transportation}$</p>
                   </li>
                   <li>
                     <p className="element beauty">Beauty</p>
-                    <p className="price"> 98$</p>
-                  </li>
-                  <li>
-                    <p className="element food2">Food</p>
-                    <p className="price">12000$</p>
+                    <p className="price"> {beauty}$</p>
                   </li>
                 </ul>
               </div>

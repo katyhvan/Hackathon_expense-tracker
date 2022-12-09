@@ -16,6 +16,37 @@ input:focus {
 }
 
 /* .active {
+  border-radius: 30px;
+}
+
+.active>.info_block {
+  background: rgba(102, 102, 102, .4);
+  box-shadow: 7px 8px 18px -3px #909090;
+}
+
+.active>div>h3 {
+  color: rgb(76, 76, 76);
+}
+
+.active>div>p {
+  color: rgb(76, 76, 76);
+}
+
+.add {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(245.28deg, #76bacf 0.9%, #ffffff 74.38%);
+
+}
+
+.active img {
+  background: url("./img/vector1new.svg") no-repeat;
+} */
+
+
+/* .active {
   background: rgb(68, 68, 68);
   border-radius: 30px;
 } */

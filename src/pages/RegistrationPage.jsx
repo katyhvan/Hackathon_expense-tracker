@@ -52,7 +52,7 @@ const RegistrationPage = () => {
     <div className="register-page">
       <div className="block-left">
         <div className="logo__block" onClick={() => navigate('/')}>
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" width={50} height={30} />
           <h4 className="logo_text">Akatscoin</h4>
         </div>
         <div className="title-block">
@@ -78,7 +78,7 @@ const RegistrationPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className="register-inp password-inp"
+            className="register-inp password-inp "
             type="password"
             placeholder="Password"
             value={password}
@@ -92,7 +92,7 @@ const RegistrationPage = () => {
             onChange={(e) => setPassword2(e.target.value)}
           />
           <span className="pass-contain">
-            *Password must contain 8 characters (letters and numbers)
+            *Password must contain 8 characters (letters and numbers){' '}
           </span>
           <button className="register-btn" onClick={handleSave}>
             Sign Up

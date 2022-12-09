@@ -32,7 +32,8 @@ const AuthContextProvider = ({ children }) => {
     try {
       const res = await axios.post(`${API}accounts/login/`, formData)
       localStorage.setItem('token', JSON.stringify(res.data))
-      setCurrentUser(email)
+      localStorage.setItem('email', JSON.stringify(email))
+      // setCurrentUser(email)
       navigate('/info')
     } catch (err) {
       setError([err.response.data.detail])
@@ -83,7 +84,10 @@ const AuthContextProvider = ({ children }) => {
     } catch (error) {}
   }
 
-  async function handleLogout(formData, navigate) {
+  async function handleLogout(refresh, navigate) {
+    let formData = new FormData()
+    formData.append('refresh', refresh)
+
     const token = JSON.parse(localStorage.getItem('token'))
     const Authorization = `JWT ${token.access}`
     const config = {
@@ -113,8 +117,10 @@ const AuthContextProvider = ({ children }) => {
         config
       )
       alert('Successfully subscribed to notifications!')
+      console.log(res)
     } catch (error) {
       setError(error)
+      console.log(error)
     }
   }
 

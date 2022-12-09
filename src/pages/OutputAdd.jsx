@@ -52,7 +52,7 @@ const OutputAdd = () => {
               value={service}
               onChange={(e) => setService(e.target.value)}
               className="inp three"
-              placeholder="Amount"
+              placeholder="Service"
               type="text"
             />
             <select

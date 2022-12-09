@@ -22,7 +22,7 @@ function ModalMailPage() {
 
   return (
     <>
-      <Logo />
+      <Logo className="logo-mail" />
       <div className="modal-mail">
         <h2 className="mail-title">Reset Password</h2>
         <input

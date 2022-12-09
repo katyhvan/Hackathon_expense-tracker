@@ -10,27 +10,11 @@ const OutputPage = () => {
 
   const [open, setOpen] = useState(false)
 
-  const {
-    getExpense,
-    expenses,
-    deleteExpense,
-    getOneExpense,
-    getTotalExpense,
-  } = useExpense()
-
-  const { incomes, getTotalIncome } = useIncome()
+  const { getExpense, expenses, deleteExpense, getOneExpense } = useExpense()
 
   useEffect(() => {
     getExpense()
   }, [])
-
-  useEffect(() => {
-    getTotalExpense()
-  }, [expenses])
-
-  useEffect(() => {
-    getTotalIncome()
-  }, [incomes])
 
   function contextmenu(e) {
     cntmenu.setAttribute(
@@ -96,9 +80,12 @@ const OutputPage = () => {
                 }}
               >
                 <div className="card_txt">
-                  <p>{item.created_date}</p>
+                  <p>{item.time}</p>
                 </div>
-                <div className="card_txt">
+                <div
+                  className="card_txt"
+                  style={{ textTransform: 'capitalize' }}
+                >
                   <p>{item.category}</p>
                 </div>
                 <div className="card_txt">
