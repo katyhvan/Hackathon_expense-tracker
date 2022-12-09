@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 800px;
-  height: 100vh;
+  height: 500px;
   margin: 0 auto;
   margin-top: 20vh;
   background: url('../img/mail.png') 100% 100% no-repeat,
@@ -54,4 +54,28 @@
 }
 
 @media (max-width: 670px) {
+  .modal-mail {
+    margin: 2%;
+    width: 100%;
+    background: rgba(36, 74, 86, 0);
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .mail-inp {
+    width: 305px;
+  }
+  .mail-title {
+    font-size: 58px;
+  }
+}
+
+@media (max-width: 410px) {
+  .mail-inp {
+    width: auto;
+  }
+  .mail-title {
+    font-size: 45px;
+  }
 }

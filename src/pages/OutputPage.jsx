@@ -6,125 +6,123 @@ import '../styles/OutputPage.css'
 import { useIncome } from '../contexts/IncomeContextProvider'
 
 const OutputPage = () => {
-	let cntmenu = document.querySelector('.contextmenu')
+  let cntmenu = document.querySelector('.contextmenu')
 
-	const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
-	const { getExpense, expenses, deleteExpense, getOneExpense } = useExpense()
+  const { getExpense, expenses, deleteExpense, getOneExpense } = useExpense()
 
-	useEffect(() => {
-		getExpense()
-	}, [])
+  useEffect(() => {
+    getExpense()
+  }, [])
 
-	function contextmenu(e) {
-		cntmenu.setAttribute(
-			'style',
-			`display: block; 
+  function contextmenu(e) {
+    cntmenu.setAttribute(
+      'style',
+      `display: block; 
       top:${e.clientY}px; 
       left: ${e.clientX}px;`
-		)
+    )
 
-		cntmenu.setAttribute('id', `${e.target.parentNode.id}`)
-	}
+    cntmenu.setAttribute('id', `${e.target.parentNode.id}`)
+  }
 
-	function handleEdit(e) {
-		getOneExpense(e.target.parentNode.id)
-	}
+  function handleEdit(e) {
+    getOneExpense(e.target.parentNode.id)
+  }
 
-	function handleDelete(id) {
-		deleteExpense(id)
-		cntmenu.style.display = 'none'
-	}
+  function handleDelete(id) {
+    deleteExpense(id)
+    cntmenu.style.display = 'none'
+  }
 
-	// console.log(expenses)
+  return (
+    <>
+      <InfoPage />
+      <div
+        className="containerList"
+        onClick={() => {
+          cntmenu.style.display = 'none'
+        }}
+      >
+        <div className="List">
+          <div className="List_text">
+            <div className="card_blk">
+              <div className="list_txt">
+                <p>Date</p>
+              </div>
+              <div className="list_txt">
+                <p>Category</p>
+              </div>
+              <div className="list_txt">
+                <p>Note</p>
+              </div>
+              <div className="list_txt">
+                <p>Total</p>
+              </div>
+            </div>
+          </div>
 
-	return (
-		<>
-			<InfoPage />
-			<div
-				className='containerList'
-				onClick={() => {
-					cntmenu.style.display = 'none'
-				}}
-			>
-				<div className='List'>
-					<div className='List_text'>
-						<div className='card_blk'>
-							<div className='list_txt'>
-								<p>Date</p>
-							</div>
-							<div className='list_txt'>
-								<p>Category</p>
-							</div>
-							<div className='list_txt'>
-								<p>Note</p>
-							</div>
-							<div className='list_txt'>
-								<p>Total</p>
-							</div>
-						</div>
-					</div>
+          {expenses?.map((item) => (
+            <div
+              className="card"
+              key={item.id}
+              id={item.id}
+              onClick={() => {
+                cntmenu.style.display = 'none'
+              }}
+            >
+              <div
+                className="card_blk"
+                onContextMenu={(e) => {
+                  e.preventDefault()
+                  contextmenu(e)
+                }}
+              >
+                <div className="card_txt">
+                  <p>{item.time}</p>
+                </div>
+                <div
+                  className="card_txt"
+                  style={{ textTransform: 'capitalize' }}
+                >
+                  <p>{item.category}</p>
+                </div>
+                <div className="card_txt">
+                  <p>{item.expense_notice}</p>
+                </div>
+                <div className="card_txt">
+                  <p>{item.value}$</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-					{expenses?.map(item => (
-						<div
-							className='card'
-							key={item.id}
-							id={item.id}
-							onClick={() => {
-								cntmenu.style.display = 'none'
-							}}
-						>
-							<div
-								className='card_blk'
-								onContextMenu={e => {
-									e.preventDefault()
-									contextmenu(e)
-								}}
-							>
-								<div className='card_txt'>
-									<p>{item.time}</p>
-								</div>
-								<div
-									className='card_txt'
-									style={{ textTransform: 'capitalize' }}
-								>
-									<p>{item.category}</p>
-								</div>
-								<div className='card_txt'>
-									<p>{item.expense_notice}</p>
-								</div>
-								<div className='card_txt'>
-									<p>{item.value}$</p>
-								</div>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
+      <div className="contextmenu">
+        <p
+          onClick={(e) => {
+            setOpen(!open)
+            handleEdit(e)
+            cntmenu.style.display = 'none'
+          }}
+        >
+          Update
+        </p>
+        <p
+          onClick={(e) => {
+            handleDelete(e.target.parentNode.id)
+            cntmenu.style.display = 'none'
+          }}
+        >
+          Delete
+        </p>
+      </div>
 
-			<div className='contextmenu'>
-				<p
-					onClick={e => {
-						setOpen(!open)
-						handleEdit(e)
-						cntmenu.style.display = 'none'
-					}}
-				>
-					Update
-				</p>
-				<p
-					onClick={e => {
-						handleDelete(e.target.parentNode.id)
-						cntmenu.style.display = 'none'
-					}}
-				>
-					Delete
-				</p>
-			</div>
-
-			{open ? <EditExpense setOpen={setOpen} open={open} /> : null}
-		</>
-	)
+      {open ? <EditExpense setOpen={setOpen} open={open} /> : null}
+    </>
+  )
 }
 
 export default OutputPage
