@@ -33,10 +33,10 @@ const AuthContextProvider = ({ children }) => {
 			const res = await axios.post(`${API}accounts/login/`, formData)
 			localStorage.setItem('token', JSON.stringify(res.data))
 			localStorage.setItem('email', JSON.stringify(email))
-			// setCurrentUser(email)
+			setCurrentUser(email)
 			navigate('/info')
 		} catch (err) {
-			setError([err.response.data.detail])
+			// setError([err.response.data.detail])
 			console.log(err)
 			alert('Please check, activate or create an account')
 		} finally {

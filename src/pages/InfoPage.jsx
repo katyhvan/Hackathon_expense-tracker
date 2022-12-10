@@ -49,7 +49,7 @@ const InfoPage = () => {
   }, [expenses])
 
   useEffect(() => {
-    const services = JSON.parse(localStorage.getItem('service'))
+    let services = JSON.parse(localStorage.getItem('service'))
     setService(services)
   }, [])
 
@@ -65,14 +65,13 @@ const InfoPage = () => {
           className="info-nav__left-block"
           onClick={() => {
             navigate('/')
-          }}>
+          }}
+        >
           <img src={logo} width={79} height={53} alt="" />
           <h4 className="logo_text-info">Akatscoin</h4>
         </div>
         <div className="info-nav__right-block">
-          {service ? (
-            <h3> Your service: {service}</h3>
-          ) : (
+          {service ? null : (
             <button className="createService-btn" onClick={handleCreate}>
               Create Service
             </button>
@@ -140,7 +139,8 @@ const InfoPage = () => {
       <div
         style={{ display: modal }}
         onClick={() => setModal('none')}
-        className="modal">
+        className="modal"
+      >
         <div className="modal_btn">
           <Link to="/IncomeAdd">
             <button>Income </button>
