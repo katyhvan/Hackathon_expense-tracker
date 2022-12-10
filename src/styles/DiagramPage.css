@@ -38,9 +38,8 @@
   justify-content: space-between;
 }
 
-
 .diagram-card:hover {
-  outline: 2px solid #244A56;
+  outline: 2px solid #244a56;
 }
 
 .diagram-card {
@@ -55,7 +54,7 @@
   background: rgba(118, 186, 207, 0.15);
 }
 
-.diagram-card>h3 {
+.diagram-card > h3 {
   height: 60px;
   font-size: 48px;
   font-weight: 600;
@@ -64,7 +63,7 @@
   margin-bottom: 15px;
 }
 
-.diagram-card>h5 {
+.diagram-card > h5 {
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
@@ -109,18 +108,21 @@
   margin-top: 10px;
 }
 
-.diagram-info-title {
+.diagram-info-title1 {
   font-size: 48px;
   font-weight: 500;
   font-family: 'Anek Devanagari';
   margin-bottom: 9px;
 }
+.diagram-info-title2 {
+  display: none;
+}
 
-.diagram-info-block>ul {
+.diagram-info-block > ul {
   margin-right: 10px;
 }
 
-.diagram-info-block>ul>li {
+.diagram-info-block > ul > li {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -134,7 +136,7 @@
 }
 
 .price {
-  width: 75px;
+  width: 35px;
   text-align: left;
   font-family: 'Quicksand';
   font-weight: 500;
@@ -168,4 +170,100 @@
 
 .plus-btn {
   margin-left: 93%;
+}
+@media all and (max-width: 1050px) {
+  .diagram__child-block {
+    padding: 0;
+
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .diagram-info-title1 {
+    display: none;
+  }
+
+  .diagram-info-title2 {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 500;
+    font-family: 'Anek Devanagari';
+    margin-bottom: 9px;
+  }
+
+  .chart-block {
+    margin: auto;
+  }
+  .diagram-info-block {
+    padding-top: 50px;
+    margin: auto;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .diagram__child-block {
+    padding-top: 50px;
+  }
+  .diagram__parent-block {
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+  }
+}
+@media all and (max-width: 490px) {
+  .diagram-info-block {
+    width: 90vw;
+  }
+  .line {
+    width: 90vw;
+    border-bottom: 2px solid rgba(36, 74, 86, 0.6);
+    box-shadow: 0px 0px 5px #244a56;
+    margin-bottom: 20px;
+  }
+}
+@media all and (max-width: 460px) {
+  .element {
+    font-size: 20px;
+  }
+  .price {
+    width: 20px;
+    font-size: 19px;
+  }
+  .chart-white-block {
+    bottom: auto;
+    right: auto;
+    top: auto;
+    left: auto;
+  }
+  .chart-block {
+    width: 80vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media all and (max-width: 460px) {
+  .diagram-info-title2 {
+    font-size: 40px;
+  }
+  .chart-white-block {
+    width: 120px;
+    height: 120px;
+    bottom: auto;
+    right: auto;
+    top: auto;
+    left: auto;
+  }
+}
+
+@media all and (max-width: 350px) {
+  .chart-block {
+    height: 40vh;
+  }
+  .diagram-info-title2 {
+    font-size: 35px;
+  }
 }

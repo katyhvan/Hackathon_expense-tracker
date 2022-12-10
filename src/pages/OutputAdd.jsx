@@ -24,6 +24,7 @@ const OutputAdd = () => {
     addExpense(category, amount, note, service, navigate)
     let title = 'Расходы'
     const obj = {
+      date: new Date().toDateString(),
       title,
       category,
       amount,
@@ -39,29 +40,34 @@ const OutputAdd = () => {
 
   return (
     <>
-      <form onSubmit={(e) => handleAdd(e)}>
+      <form onSubmit={e => handleAdd(e)}>
         <img
+          className="add_photo"
           style={{ position: 'absolute', zIndex: 2, bottom: 0, right: 0 }}
           src={photo}
           alt=""
         />
-        <div className="add">
+        <div
+          style={{
+            background:
+              'linear-gradient(222.46deg, #EBF5F8 23.89%, #76BACF 182.22%)',
+          }}
+          className="add">
           <h2>Add Expence </h2>
           <div className="add_inp">
             <input
               value={service}
-              onChange={(e) => setService(e.target.value)}
-              className="inp three"
+              onChange={e => setService(e.target.value)}
+              className="inp five"
               placeholder="Service"
               type="text"
             />
             <select
               // defaultValue={'value1'}
               value={category}
-              onChange={(e) => setCategory(e.target.value.toLowerCase())}
+              onChange={e => setCategory(e.target.value.toLowerCase())}
               className="inp two"
-              name="select"
-            >
+              name="select">
               <option style={{ display: 'none' }} value="value1">
                 Category
               </option>
@@ -73,14 +79,14 @@ const OutputAdd = () => {
             </select>
             <input
               value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              onChange={e => setAmount(e.target.value)}
               className="inp three"
               placeholder="Amount"
               type="text"
             />
             <input
               value={note}
-              onChange={(e) => setNote(e.target.value)}
+              onChange={e => setNote(e.target.value)}
               className="inp four"
               placeholder="Note"
               type="text"

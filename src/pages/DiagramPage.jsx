@@ -38,9 +38,9 @@ const DiagramPage = () => {
     getExpense()
   }, [])
 
-  useEffect(() => {
-    showDiagram()
-  }, [expenses])
+  // useEffect(() => {
+  //   showDiagram()
+  // }, [expenses])
 
   const [chartOptions, setChartOptions] = useState({})
 
@@ -78,16 +78,19 @@ const DiagramPage = () => {
         <div className="diagram-container">
           <div className="diagram__parent-block">
             <div className="diagram__child-block">
+              <h3 className="diagram-info-title2">Graph of Expenses</h3>
+
               <div className="chart-block">
+                <div className="chart-white-block"></div>
                 <Pie
                   className="chart"
                   options={chartOptions}
                   data={chartData}
                 />
-                <div className="chart-white-block"></div>
               </div>
               <div className="diagram-info-block">
-                <h3 className="diagram-info-title">Graph of Expenses</h3>
+                <h3 className="diagram-info-title1">Graph of Expenses</h3>
+                <div className="line"></div>
                 <ul>
                   <li>
                     <p className="element food">Food</p>

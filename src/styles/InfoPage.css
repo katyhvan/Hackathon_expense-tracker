@@ -6,6 +6,10 @@
   justify-content: space-between;
 }
 
+.info-nav__right-block {
+  font-family: sans-serif;
+}
+
 .info_block {
   display: flex;
   flex-direction: column;
@@ -17,7 +21,7 @@
   background: rgba(118, 186, 207, 0.15);
   box-shadow: 7px 8px 18px 0px #244a56;
   border-radius: 30px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .active .info_block {
@@ -92,7 +96,7 @@
   background: rgba(118, 186, 207, 0.15);
   box-shadow: 0px 0px 9px 1px rgba(36, 74, 86, 0.18);
   border-radius: 15px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .card_blk {
@@ -135,7 +139,7 @@
   margin-top: 20px;
 }
 
-.info_block>h3 {
+.info_block > h3 {
   margin-bottom: 20px;
 }
 
@@ -155,29 +159,29 @@
   padding: 5px 10px;
   border-radius: 13px;
   color: #244a56;
-  transition: .3s;
+  transition: 0.3s;
   font-size: 16px;
 }
 
 .createService-btn:hover {
-  background-color: rgba(118, 186, 207, .9);
+  background-color: rgba(118, 186, 207, 0.9);
   transform: translateY(-1px);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .createService-btn:active {
   transform: translateY(1px);
   box-shadow: none;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .info_block:active {
   box-shadow: none;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .icone1 img {
-  margin-top: 10px;
+  margin-top: 13px;
   width: 33px;
   height: 44px;
   background: url(../img/vector1.svg) no-repeat;
@@ -237,7 +241,7 @@
   overflow-y: hidden;
 }
 
-.contextmenu>p {
+.contextmenu > p {
   cursor: pointer;
   width: 100%;
   text-align: center;
@@ -246,7 +250,7 @@
   transition: 0.3s;
 }
 
-.contextmenu>p:hover {
+.contextmenu > p:hover {
   background: #000;
   color: aliceblue;
   transition: 0.3s;
@@ -338,6 +342,10 @@
 }
 
 @media all and (max-width: 550px) {
+  .info-nav__right-block h3 {
+    font-size: 15px;
+  }
+
   .containerInfo {
     padding-top: 10px;
     height: 50px;
@@ -357,10 +365,6 @@
     margin-bottom: 10px;
   }
 
-  .gh h3 {
-    font-size: 20px;
-  }
-
   .card_blk {
     margin-left: 15px;
   }
@@ -376,31 +380,31 @@
 }
 
 @media all and (max-width: 460px) {
+  .info-nav__right-block h3 {
+    font-size: 13px;
+  }
   .btn_add {
     height: 10vh;
   }
 
-  .info-nav__right-block img {
+  /* .info-nav__right-block img {
     width: 50px;
     height: 6vh;
-  }
+  } */
 
-  .icone1 img {
-    margin-top: -1px;
-    background-size: 45%;
-    width: 33px;
-    height: 14vh;
-    background-size: 64%;
-  }
+  /* .icone1 img {
+    margin-left: 10px;
+    background-size: 65%;
+  } */
 
   .active span {
     width: 60px;
     outline: 1.8px solid #244a56d5;
   }
-
+  /* 
   .info_block h3 {
     font-size: 10px;
-  }
+  } */
 
   .info_block p {
     font-size: 15px;
