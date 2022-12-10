@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContextProvider'
 import { useNavigate } from 'react-router-dom'
-import logo from '../img/logo.png'
+import logo from '../img/Rectangle 1.svg'
 import background from '../img/login-page/background-login.png'
 import decor from '../img/login-page/decor-img.png'
 

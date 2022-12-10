@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import photo from '../img/incomeAdd.svg'
 import '../styles/incomeAdd.css'
 import { incomeContext, useIncome } from '../contexts/IncomeContextProvider'
@@ -8,7 +8,7 @@ import { historyContext } from '../contexts/HistoryContextProvider'
 const IncomeAdd = () => {
   const { addIncome } = useIncome()
   const [amount, setAmount] = useState('')
-  const [service, setServices] = useState('')
+  const [service, setService] = useState('')
   const navigate = useNavigate()
   const { addProductToHistory } = useContext(historyContext)
 
@@ -29,12 +29,17 @@ const IncomeAdd = () => {
     }
     addProductToHistory(obj)
     setAmount('')
-    setServices('')
+    setService('')
   }
+
+  useEffect(() => {
+    let myService = JSON.parse(localStorage.getItem('service'))
+    setService(myService)
+  }, [])
 
   return (
     <>
-      <form onSubmit={e => handleAdd(e)}>
+      <form onSubmit={(e) => handleAdd(e)}>
         <img
           className="add_photo"
           style={{ position: 'absolute', zIndex: 2, bottom: 0, left: 0 }}
@@ -46,22 +51,23 @@ const IncomeAdd = () => {
             background:
               'linear-gradient(108.63deg, #EBF5F8 57.53%, #76BACF 152.61%)',
           }}
-          className="add">
+          className="add"
+        >
           <h2>Add Income </h2>
           <div className="add_inp">
-            <input
+            {/* <input
               className="inp1 five"
               placeholder="Service"
               type="text"
               value={service}
-              onChange={e => setServices(e.target.value)}
-            />{' '}
+              onChange={(e) => setService(e.target.value)}
+            />{' '} */}
             <input
               className="inp1 three"
               placeholder="Amount"
               type="number"
               value={amount}
-              onChange={e => setAmount(e.target.value)}
+              onChange={(e) => setAmount(e.target.value)}
             />
           </div>
           <button className="btn_save" type="submit">

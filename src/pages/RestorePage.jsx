@@ -17,7 +17,7 @@ const RestorePage = () => {
       alert('Some inputs are empty!')
       return
     } else if (password !== password2) {
-      alert("Password and password confirmation don't match")
+      alert("Password and password confirmation don't match!")
     } else {
       let formData = new FormData()
       formData.append('code', code)
