@@ -174,6 +174,7 @@ const IncomeContextProvider = ({ children }) => {
 			}
 
 			await axios.post(`${API}service/`, date, config)
+			getBalance()
 			// localStorage.setItem('service', JSON.stringify())
 		} catch (err) {
 			console.log(err)
